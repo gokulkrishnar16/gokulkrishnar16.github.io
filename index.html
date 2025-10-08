@@ -1,280 +1,383 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gokul Krishna R - Cybersecurity Portfolio</title>
-  <link rel="icon" href="portfolio_icon.png" type="image/png" />
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-  <style>
-    body {
-      background: #18181b;
-      color: #fff;
-      font-family: 'Roboto', Arial, sans-serif;
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      font-size: 1.06rem;
-    }
-    .main-container {
-      max-width: 900px;
-      margin: 38px auto 0 auto;
-      background: #222225;
-      padding: 2.6rem 2.7rem 3.2rem 2.7rem;
-      border-radius: 14px;
-      flex: 1;
-      box-shadow: 0 2px 8px rgba(30,30,35,0.04);
-    }
-    .profile-header {
-      padding: 32px 0 8px 0;
-      margin-bottom: 10px;
-    }
-    .profile-name {
-      font-size: 2.9rem;
-      font-weight: 800;
-      color: #fff;
-      margin-bottom: 12px;
-      letter-spacing: 0.03em;
-      line-height: 1.1;
-    }
-    .profile-role {
-      display: inline-block;
-      padding: 0.38em 1.28em;
-      background: #18181b;
-      border-radius: 12px;
-      font-size: 1.15rem;
-      color: #fff;
-      font-weight: 500;
-      margin-bottom: 10px;
-      letter-spacing: 0.01em;
-    }
-    nav {
-      display: flex;
-      gap: 34px;
-      align-items: center;
-      margin-bottom: 36px;
-      background: #202022;
-      border-radius: 11px;
-      height: 56px;
-      font-size:1.1rem;
-    }
-    nav a {
-      flex: 1;
-      padding: 18px 0 16px 0;
-      color: #fff;
-      text-decoration: none;
-      text-align: center;
-      font-size: 1.11rem;
-      font-weight: 500;
-      letter-spacing: 0.024em;
-      border-bottom: 2.5px solid transparent;
-      transition: color 0.13s, border-bottom 0.13s, background 0.16s;
-      background: none;
-      border-radius: 6px 6px 0 0;
-      position: relative;
-    }
-    nav a.active, nav a:hover {
-      color: #ffffff;
-      border-bottom: 2.5px solid #fff;
-      background: #18181b;
-      font-weight:600;
-    }
-    section {
-      margin-bottom: 32px;
-      background: #222225;
-      border-radius: 11px;
-      padding: 2.1em 2.2em 2.1em 2.2em;
-    }
-    section h2 {
-      font-size: 2.2rem;
-      color: #fff;
-      font-weight: 800;
-      margin-bottom: 15px;
-      letter-spacing: 0.01em;
-    }
-    section h3 {
-      font-size: 1.19rem;
-      margin: 1.2rem 0 0.7rem 0;
-      font-weight: 700;
-      color: #fff;
-    }
-    #about-terminal {
-      background: #18181b;
-      border-radius: 8px;
-      color: #fff;
-      font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
-      font-size: 1.13rem;
-      line-height: 2.07;
-      padding: 30px 22px 22px 22px;
-      margin-bottom: 0.3em;
-      min-height: 170px;
-      border: 1.5px solid #2e2e30;
-      position: relative;
-      overflow: auto;
-      word-break: break-word;
-    }
-    #about-terminal .prompt {
-      color: #fff;
-      font-weight: 600;
-      font-size: 1.19rem;
-      margin-bottom: 17px;
-      display:inline-block;
-      letter-spacing: 0.03em;
-    }
-    .blinking-cursor {
-      display: inline-block;
-      width: 11px;
-      color: #fff;
-      background: transparent;
-      animation: blink 1s steps(2) infinite;
-      font-weight:bold;
-    }
-    @keyframes blink { 0% {opacity:1;} 49%{opacity:1;} 50%{opacity:0;} 100%{opacity:0;} }
-    .skills-wrapper {
-      display: flex;
-      gap: 34px;
-      flex-wrap: wrap;
-      align-items: flex-start;
-    }
-    .skills-column {
-      min-width: 210px;
-      max-width: 320px;
-      background: #222225;
-      border-radius: 9px;
-      padding: 19px 11px;
-      margin-bottom: 10px;
-      flex: 1;
-      font-size:1.04rem;
-    }
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 11px 12px;
-      align-items: center;
-    }
-    .badge-img {
-      height: 30px;
-      border-radius: 6px;
-      background: #191919;
-      cursor: pointer;
-      transition: background 0.13s, transform 0.12s;
-      box-shadow: none;
-    }
-    .badge-img:hover {
-      background: #18181b;
-      transform: scale(1.05) translateY(-2px);
-      z-index: 1;
-    }
-    .project-card {
-      background: #222225;
-      border-radius: 9px;
-      padding: 15px 16px;
-      margin-bottom: 10px;
-      font-size:1.06rem;
-    }
-    .project-card h3 {
-      color: #fff; margin-bottom:10px; font-weight:700; font-size:1.08rem;
-    }
-    .project-card p {
-      margin-bottom: 10px;
-      color: #fff;
-      font-size: 1rem;
-    }
-    .project-links {
-      display: flex; gap:12px; flex-wrap:wrap;
-      font-size:1.04rem;
-    }
-    .project-links a {
-      color: #fff;
-      font-weight:600;
-      text-decoration: underline;
-      font-size:1.01rem;
-      transition:color 0.11s;
-    }
-    .project-links a:hover { color:#e6e6e6;}
-    .contact-form input,
-    .contact-form textarea {
-      background: #222225;
-      border: 1px solid #444;
-      color: #fff;
-      padding: 9px;
-      border-radius: 6px;
-      margin-bottom: 10px;
-      width: 100%;
-      font-size: 1.05rem;
-      transition: border-color 0.15s;
-    }
-    .contact-form input:focus, .contact-form textarea:focus {
-      border-color: #fff;
-      outline: none;
-    }
-    .contact-form button {
-      background: #fff;
-      color: #18181b;
-      padding: 10px 24px;
-      border-radius: 7px;
-      border: none;
-      font-size: 1.04rem;
-      font-weight: 700;
-      transition: background 0.12s, color 0.11s;
-      cursor: pointer;
-    }
-    .contact-form button:hover {
-      background: #e6e6e6;
-      color: #18181b;
-    }
-    footer {
-      text-align: center;
-      padding: 14px 0;
-      color: #fff;
-      font-size: 0.98rem;
-      background: #18181b;
-      border-radius: 0 0 12px 12px;
-      margin:34px auto 0 auto;
-      max-width: 900px;
-      font-weight:500;
-    }
-    @media (max-width: 700px) {
-      .main-container {padding: 6px 2vw;}
-      .profile-header {flex-direction: column; padding:14px 0 4px 0;}
-      .profile-name {font-size:1.19rem;}
-      nav a {font-size:0.98rem;padding:11px 0;}
-      nav {height:45px;}
-      section {padding:1.1em 0.3em;}
-      .skills-wrapper {gap:10px;}
-      .skills-column {padding:8px 5px;}
-      footer {padding:9px 0;}
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gokul Krishna R - One Piece Anime Portfolio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat:ital,wght@0,400;0,700;1,600&display=swap');
+
+body {
+  margin: 0;
+  background: linear-gradient(to bottom, #87ceeb 0%, #f0f8ff 80%);
+  font-family: 'Montserrat', sans-serif;
+  color: #1e1e1e;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Background waves */
+body::before {
+  content: "";
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 160px;
+  background: url('https://i.ibb.co/ZTy6KLs/wave.svg') repeat-x bottom;
+  animation: waveMove 8s linear infinite;
+  z-index: -1;
+}
+
+@keyframes waveMove {
+  from {background-position-x: 0;}
+  to {background-position-x: 1000px;}
+}
+
+/* Container */
+.main-container {
+  max-width: 1000px;
+  margin: 50px auto 60px auto;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 38px 42px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  animation: fadeSlideUp 1.2s ease forwards;
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header */
+.profile-header {
+  text-align: center;
+  margin-bottom: 44px;
+}
+.profile-name {
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 3rem;
+  color: #e63946; /* bright red */
+  text-shadow: 2px 2px 0 #f1faee, 4px 4px 5px rgba(0,0,0,0.1);
+  margin-bottom: 6px;
+}
+.profile-role {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #1d3557;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0 rgba(230, 57, 70, 0.5);
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-bottom: 60px;
+}
+nav a {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #1d3557;
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 12px;
+  transition: background-color 0.25s, color 0.25s;
+  position: relative;
+}
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: #e63946;
+  border-radius: 10px;
+  transition: width 0.3s;
+}
+nav a:hover, nav a.active {
+  color: #f1faee;
+  background-color: #e63946;
+}
+nav a:hover::after, nav a.active::after {
+  width: 40%;
+}
+
+/* Section */
+section {
+  margin-bottom: 48px;
+}
+section h2 {
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 2.8rem;
+  color: #e63946;
+  margin-bottom: 18px;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(29, 53, 87, 0.3);
+  position: relative;
+}
+section h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #1d3557;
+  margin: 12px auto 0 auto;
+  border-radius: 2px;
+}
+
+/* About */
+#about p {
+  font-size: 1.15rem;
+  line-height: 1.65;
+  text-align: justify;
+  max-width: 900px;
+  margin: 0 auto;
+  color: #264653;
+  font-weight: 500;
+  text-shadow: 0 0 1px #a8dadc;
+}
+
+/* Skills */
+.skills-wrapper {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.skills-column {
+  background: #f1faee;
+  border-radius: 12px;
+  padding: 24px 28px;
+  flex: 1 1 300px;
+  box-shadow: 0 6px 18px rgba(198, 210, 219, 0.4);
+  color: #1d3557;
+}
+.skills-column h3 {
+  font-family: 'Luckiest Guy', cursive;
+  margin-bottom: 12px;
+  color: #e76f51;
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-shadow: 1px 1px 1px #ffe8d6;
+}
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 16px;
+}
+.badge-img {
+  height: 32px;
+  border-radius: 8px;
+  filter: drop-shadow(1px 1px 1px #f4a261);
+  cursor: default;
+  transition: transform 0.2s ease-in-out;
+}
+.badge-img:hover {
+  transform: scale(1.07) translateY(-2px);
+}
+
+/* Education, Certificates, Projects */
+section p {
+  color: #264653;
+  font-weight: 500;
+  margin: 10px 0 6px;
+  font-size: 1.1rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.project-card {
+  background: #f1faee;
+  border-radius: 14px;
+  padding: 20px 28px;
+  max-width: 900px;
+  margin: 0 auto 20px;
+  box-shadow: 0 8px 22px rgba(198, 210, 219, 0.5);
+  color: #1d3557;
+}
+.project-card h3 {
+  font-family: 'Luckiest Guy', cursive;
+  margin-bottom: 14px;
+  color: #e63946;
+  font-weight: 700;
+  font-size: 1.7rem;
+  text-shadow: 1px 1px 2px #f4a261;
+}
+.project-card p {
+  font-weight: 500;
+  font-size: 1.15rem;
+  margin-bottom: 12px;
+}
+.project-links a {
+  color: #1d3557;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-right: 24px;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 4px;
+}
+.project-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #e63946;
+  transition: width 0.3s ease;
+}
+.project-links a:hover::after {
+  width: 100%;
+}
+
+/* Contact form */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #f1faee;
+  padding: 32px 28px 36px 28px;
+  border-radius: 18px;
+  box-shadow: 0 6px 22px rgba(198, 210, 219, 0.6);
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border-radius: 10px;
+  border: 2px solid #e63946;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  transition: border-color 0.3s ease;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #457b9d;
+  outline: none;
+}
+.contact-form button {
+  background-color: #e63946;
+  padding: 14px 34px;
+  border: none;
+  border-radius: 16px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+.contact-form button:hover {
+  background-color: #d62828;
+}
+
+/* Social Icon Row */
+.icon-row-theme {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 30px;
+}
+.icon-row-theme a {
+  text-decoration: none;
+  display: inline-block;
+  background: #f1faee;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(230,57,70,0.09);
+  padding: 12px;
+  transition: transform 0.16s;
+}
+.icon-row-theme a:hover {
+  transform: scale(1.16);
+  background: #e63946;
+}
+.icon-row-theme i {
+  font-size: 2.1rem;
+  color: #e63946;
+  transition: color 0.2s;
+}
+.icon-row-theme a:hover i {
+  color: #f1faee;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 16px 0;
+  color: #1d3557;
+  font-weight: 700;
+  background: #f1faee;
+  border-radius: 0 0 20px 20px;
+  max-width: 1000px;
+  margin: 0 auto 40px auto;
+  box-shadow: 0 2px 6px rgba(198, 210, 219, 0.75);
+}
+
+/* Animations for fade and slide */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0);}
+}
+section, .profile-header, nav, footer {
+  animation: fadeInUp 1s ease forwards;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .skills-wrapper {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .skills-column {
+    max-width: 100%;
+  }
+  .project-links a {
+    display: block;
+    margin: 0 0 12px;
+  }
+  .contact-form {
+    padding: 20px 16px;
+  }
+  .icon-row-theme {
+    gap: 20px;
+  }
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body>
-  <div class="main-container" role="main">
-    <div class="profile-header">
-      <div class="profile-details">
-        <div class="profile-name">GOKUL KRISHNA R</div>
-        <div class="profile-role">Cybersecurity Enthusiast</div>
-      </div>
-    </div>
-    <nav>
+  <div class="main-container">
+    <header class="profile-header" role="banner">
+      <h1 class="profile-name">GOKUL KRISHNA R</h1>
+      <p class="profile-role">Cybersecurity Enthusiast</p>
+    </header>
+    <nav role="navigation" aria-label="Primary navigation">
       <a href="#about" class="active">About</a>
       <a href="#skills">Skills</a>
       <a href="#education">Education</a>
-      <a href="#tryhackme">TryHackMe</a>
       <a href="#certificates">Certificates</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
-    <section id="about">
-      <h2>About Me </h2>
-      <div id="about-terminal">
-        <span class="prompt">$ whoami</span>
-        <span id="whoami-output"></span><span class="blinking-cursor">█</span>
-      </div>
+    <section id="about" tabindex="0" aria-labelledby="about-header">
+      <h2 id="about-header">About Me</h2>
+      <p>Motivated cybersecurity student with hands-on practice in vulnerability scanning, penetration testing, and Capture the Flag (CTF) challenges. Skilled in using industry-standard tools such as Nmap, Burp Suite, Metasploit, Hydra, and John the Ripper within Linux environments (Kali, Ubuntu) for reconnaissance, exploitation, and system security analysis. Possess a strong foundation in network protocols, system administration, and information security principles, with practical experience gained through lab-based projects and security-focused coursework. Highly curious and detail-oriented, with proven ability to learn quickly, adapt to new technologies, and apply knowledge to both individual research and team-based security tasks. Driven by a passion for ethical hacking, problem-solving, and continuous learning, and eager to contribute technical skills to real-world security projects, organizational defense strategies, and the broader cybersecurity community.</p>
     </section>
-    <section id="skills">
-      <h2> Skills</h2>
+    <section id="skills" tabindex="0" aria-labelledby="skills-header">
+      <h2 id="skills-header">Skills</h2>
       <div class="skills-wrapper">
         <div class="skills-column" aria-label="Operating Systems">
           <h3>Operating Systems</h3>
@@ -297,62 +400,46 @@
         </div>
       </div>
     </section>
-    <section id="education">
-      <h2>🎓 Education</h2>
-      <div>
-        <p>M E S College, Kunnukara – 2019 to 2022</p>
-        <p>Offenso Hackers Academy – 2025 to Present</p>
-      </div>
+    <section id="education" tabindex="0" aria-labelledby="education-header">
+      <h2 id="education-header">🎓 Education</h2>
+      <p>M E S College, Kunnukara – 2019 to 2022</p>
+      <p>Offenso Hackers Academy – 2025 to Present</p>
     </section>
-    <section id="tryhackme">
-      <h2> TryHackMe</h2>
-      <div style="display:flex; align-items:center; gap:18px;">
-        <div style="width:52px;height:52px;font-size:2rem; background:#222225; display:flex;align-items:center;justify-content:center; border-radius:10px;">
-          <i class="fas fa-shield-alt"></i>
-        </div>
-        <div style="color:#fff; font-weight:600; font-size:1.14rem;">10 Labs Completed</div>
-      </div>
+    <section id="certificates" tabindex="0" aria-labelledby="certificates-header">
+      <h2 id="certificates-header">Certificates</h2>
+      <p style="text-align:center; font-weight:600;">Loading certificates...</p>
     </section>
-    <section id="certificates">
-      <h2> Certificates</h2>
-      <div class="loading-placeholder" style="width: 220px; height: 23px; margin: 1em auto; border-radius: 8px; background: #18181b;"></div>
-      <div style="text-align:center; color:#fff; font-weight:600; margin-top:0.5em; font-size:1.09rem;">Loading certificates...</div>
-    </section>
-    <section id="projects">
-      <h2> Projects</h2>
-      <div class="project-card">
+    <section id="projects" tabindex="0" aria-labelledby="projects-header">
+      <h2 id="projects-header">Projects</h2>
+      <article class="project-card" tabindex="0">
         <h3>Password Generator</h3>
-        <p>
-          A secure password generator featuring a strength checker, master password protected history, and theme switching with adjustable text size.
-        </p>
+        <p>A secure password generator featuring a strength checker, master password protected history, and theme switching with adjustable text size.</p>
         <div class="project-links">
-          <a href="https://gokulkrishnar16.github.io/password-generator/" target="_blank">View Live Project</a>
-          <a href="https://github.com/gokulkrishnar16/password-generator" target="_blank">View Source Code</a>
+          <a href="https://gokulkrishnar16.github.io/password-generator/" target="_blank" rel="noopener">View Live Project</a>
+          <a href="https://github.com/gokulkrishnar16/password-generator" target="_blank" rel="noopener">View Source Code</a>
         </div>
-      </div>
+      </article>
     </section>
-    <section id="contact">
-      <h2> Contact Me</h2>
-      <form class="contact-form" style="max-width:600px; margin:0 auto;">
-        <input type="text" name="name" placeholder="Name" required />
-        <input type="email" name="email" placeholder="Email" required />
+    <section id="contact" tabindex="0" aria-labelledby="contact-header">
+      <h2 id="contact-header">Contact Me</h2>
+      <form class="contact-form" novalidate>
+        <input type="text" name="name" placeholder="Name" required autocomplete="name" />
+        <input type="email" name="email" placeholder="Email" required autocomplete="email" />
         <input type="text" name="subject" placeholder="Subject" required />
-        <textarea name="message" rows="4" placeholder="Message" required></textarea>
-        <div style="text-align:center;">
-          <button type="submit">Send Message</button>
-        </div>
+        <textarea name="message" rows="5" placeholder="Message" required></textarea>
+        <button type="submit">Send Message</button>
       </form>
-      <div style="display:flex;justify-content:center; gap:18px; margin-top:2em;">
-        <a href="https://www.linkedin.com/in/gokul-krishna-r-06a45136a" target="_blank" style="width:46px;height:46px;font-size:1.3rem;background:#222225; color:#fff; display:flex;align-items:center;justify-content:center;border-radius:8px;text-decoration:none;">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="mailto:gokulkrishnar16@gmail.com" title="Email" style="width:46px;height:46px;font-size:1.3rem;background:#222225;color:#fff;display:flex;align-items:center;justify-content:center;border-radius:8px;text-decoration:none;">
-          <i class="fas fa-envelope"></i>
-        </a>
-        <a href="https://github.com/gokulkrishnar16" target="_blank" style="width:46px;height:46px;font-size:1.3rem;background:#222225;color:#fff;display:flex;align-items:center;justify-content:center;border-radius:8px;text-decoration:none;">
+      <div class="icon-row-theme">
+        <a href="https://github.com/gokulkrishnar16" target="_blank" title="GitHub" rel="noopener">
           <i class="fab fa-github"></i>
         </a>
-        <a href="https://www.instagram.com/gokullkr" target="_blank" style="width:46px;height:46px;font-size:1.3rem;background:#222225;color:#fff;display:flex;align-items:center;justify-content:center;border-radius:8px;text-decoration:none;">
+        <a href="mailto:gokulkrishnar16@gmail.com" title="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/gokul-krishna-r-06a45136a" target="_blank" title="LinkedIn" rel="noopener">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://www.instagram.com/gokullkr" target="_blank" title="Instagram" rel="noopener">
           <i class="fab fa-instagram"></i>
         </a>
       </div>
@@ -361,24 +448,7 @@
   <footer>
     &copy; Gokul Krishna R. All rights reserved.
   </footer>
-  <script>
-    // terminal animation for about section, single pro paragraph
-    const aboutText = 
-    "Motivated cybersecurity student with hands-on practice in vulnerability scanning, penetration testing, and Capture the Flag (CTF) challenges. Skilled in using industry-standard tools such as Nmap, Burp Suite, Metasploit, Hydra, and John the Ripper within Linux environments (Kali, Ubuntu) for reconnaissance, exploitation, and system security analysis. Possess a strong foundation in network protocols, system administration, and information security principles, with practical experience gained through lab-based projects and security-focused coursework. Highly curious and detail-oriented, with proven ability to learn quickly, adapt to new technologies, and apply knowledge to both individual research and team-based security tasks. Driven by a passion for ethical hacking, problem-solving, and continuous learning, and eager to contribute technical skills to real-world security projects, organizational defense strategies, and the broader cybersecurity community.";
-
-    const output = document.getElementById('whoami-output');
-    let idx = 0;
-    function typeTerminal() {
-      if (idx < aboutText.length) {
-        output.textContent += aboutText.charAt(idx);
-        idx++;
-        setTimeout(typeTerminal, 12);
-      }
-    }
-    window.addEventListener("DOMContentLoaded", typeTerminal);
-  </script>
 </body>
 </html>
-
 
 
