@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="google-site-verification" content="rJlp1SeUwrc_7u54sHZTnPZDKdhE3TC-uKD4q1olR1A" />
 <title>Gokul Krishna R - Cybersecurity Portfolio</title>
 <link rel="icon" href="portfolio_icon1.png" type="image/png" />
 
@@ -34,7 +35,7 @@
 
 body {
   margin: 0;
-  background: #000000;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
   font-family: 'Space Grotesk', sans-serif;
   color: var(--text-primary);
   min-height: 100vh;
@@ -42,7 +43,7 @@ body {
   position: relative;
 }
 
-/* Matrix rain effect */
+/* Subtle particle effect */
 .matrix-bg {
   position: fixed;
   top: 0;
@@ -51,23 +52,23 @@ body {
   height: 100%;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.15;
+  opacity: 0.6;
 }
 
 .matrix-column {
   position: absolute;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 14px;
+  font-size: 1px;
   color: var(--cyber-green);
-  text-shadow: 0 0 8px var(--glow-green);
-  animation: matrixFall linear infinite;
+  text-shadow: 0 0 2px var(--glow-green);
+  animation: subtleFloat 8s ease-in-out infinite;
   white-space: nowrap;
+  opacity: 0.3;
 }
 
-@keyframes matrixFall {
-  0% { transform: translateY(-100%); opacity: 1; }
-  80% { opacity: 1; }
-  100% { transform: translateY(100vh); opacity: 0; }
+@keyframes subtleFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
 }
 
 /* Animated grid background */
@@ -79,17 +80,16 @@ body::before {
   width: 100%;
   height: 100%;
   background-image: 
-    linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
-  animation: gridMove 20s linear infinite;
+    linear-gradient(rgba(0, 255, 65, 0.008) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 65, 0.008) 1px, transparent 1px);
+  background-size: 80px 80px;
   z-index: 0;
   pointer-events: none;
 }
 
 @keyframes gridMove {
   0% { transform: translate(0, 0); }
-  100% { transform: translate(50px, 50px); }
+  100% { transform: translate(80px, 80px); }
 }
 
 /* Digital noise effect */
@@ -124,7 +124,7 @@ body::after {
   50% { transform: rotate(180deg) scale(1.1); }
 }
 
-/* Scanline effect */
+/* Subtle scanline effect */
 .scanline {
   position: fixed;
   top: 0;
@@ -134,14 +134,14 @@ body::after {
   background: linear-gradient(
     to bottom,
     transparent 50%,
-    rgba(0, 255, 65, 0.05) 51%,
+    rgba(0, 255, 65, 0.01) 51%,
     transparent 52%
   );
-  background-size: 100% 2px;
-  animation: scanline 6s linear infinite;
+  background-size: 100% 4px;
+  animation: scanline 12s linear infinite;
   pointer-events: none;
   z-index: 999;
-  opacity: 0.8;
+  opacity: 0.3;
 }
 
 @keyframes scanline {
@@ -200,32 +200,22 @@ body::after {
   font-size: 4rem;
   font-weight: 700;
   color: var(--cyber-green);
-  text-shadow: 
-    0 0 10px var(--glow-green),
-    0 0 20px var(--glow-green),
-    0 0 30px var(--glow-green),
-    0 0 40px var(--glow-green),
-    0 0 70px var(--glow-green),
-    0 0 80px var(--glow-green);
+  text-shadow: 0 0 15px var(--glow-green);
   margin-bottom: 12px;
   letter-spacing: 4px;
   position: relative;
-  animation: flicker 4s ease-in-out infinite, textGlitch 5s infinite;
 }
 
 @keyframes textGlitch {
   0%, 90%, 100% { transform: translate(0); }
-  91% { transform: translate(-2px, 2px); }
-  92% { transform: translate(2px, -2px); }
-  93% { transform: translate(-2px, -2px); }
-  94% { transform: translate(2px, 2px); }
-  95% { transform: translate(0); }
+  91% { transform: translate(-1px, 1px); }
+  92% { transform: translate(1px, -1px); }
+  93% { transform: translate(0); }
 }
 
 @keyframes flicker {
   0%, 100% { opacity: 1; }
-  41%, 43%, 45% { opacity: 0.8; }
-  42%, 44% { opacity: 1; }
+  50% { opacity: 0.95; }
 }
 
 .profile-role {
@@ -976,7 +966,7 @@ html {
       <div class="glitch-wrapper">
         <h1 class="profile-name">GOKUL KRISHNA R</h1>
       </div>
-      <p class="profile-role">Cybersecurity Student</p>
+      <p class="profile-role">Cybersecurity Specialist</p>
     </header>
 
     <nav role="navigation" aria-label="Primary navigation">
@@ -1178,7 +1168,3 @@ html {
   </script>
 </body>
 </html>
-
-
-
-
