@@ -1,52 +1,1212 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Site Under Maintenance</title>
-  <style>
-    body {
-      background-color: #f8f9fa;
-      color: #333;
-      font-family: Arial, Helvetica, sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      flex-direction: column;
-      text-align: center;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gokul Krishna R | Portfolio</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="portfolio_icon1.png">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
+        body {
+            font-family: 'Fira Code', monospace;
+            color: #00ff41;
+            background: #0d0d0d;
+            overflow-x: hidden;
+        }
 
-    p {
-      font-size: 1.2rem;
-      max-width: 500px;
-    }
+        /* Matrix Rain Effect Background */
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+        }
 
-    .spinner {
-      border: 6px solid #e0e0e0;
-      border-top: 6px solid #007bff;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      animation: spin 1s linear infinite;
-      margin-top: 2rem;
-    }
+        /* Navbar */
+        .navbar {
+            padding: 20px 0;
+            transition: all 0.3s;
+            background: rgba(13, 13, 13, 0.95);
+            border-bottom: 2px solid #00ff41;
+        }
 
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-  </style>
+        .navbar.scrolled {
+            background: rgba(13, 13, 13, 0.98);
+            box-shadow: 0 2px 20px rgba(0, 255, 65, 0.3);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 28px;
+            color: #00ff41 !important;
+            font-family: 'Share Tech Mono', monospace;
+            text-shadow: 0 0 10px #00ff41;
+        }
+
+        .nav-link {
+            margin: 0 15px;
+            font-weight: 500;
+            color: #00ff41 !important;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #ff0000 !important;
+            text-shadow: 0 0 10px #ff0000;
+        }
+
+        .nav-link::before {
+            content: '> ';
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .nav-link:hover::before {
+            opacity: 1;
+        }
+
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #00ff41;
+            padding: 150px 0 100px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            border-bottom: 3px solid #00ff41;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 255, 65, 0.03) 0px,
+                transparent 1px,
+                transparent 2px,
+                rgba(0, 255, 65, 0.03) 3px
+            );
+        }
+
+        .hero-content h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            animation: glitchText 3s infinite;
+            font-family: 'Share Tech Mono', monospace;
+            text-shadow: 0 0 20px #00ff41;
+        }
+
+        .hero-content h1::before {
+            content: '$ ';
+            color: #ff0000;
+        }
+
+        .hero-content h2 {
+            font-size: 32px;
+            font-weight: 400;
+            margin-bottom: 30px;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .typing-text {
+            color: #ff0000;
+            text-shadow: 0 0 10px #ff0000;
+        }
+
+        .hero-content p {
+            font-size: 16px;
+            margin-bottom: 40px;
+            animation: fadeInUp 1.4s ease;
+            line-height: 1.8;
+        }
+
+        .btn-hack {
+            background: transparent;
+            color: #00ff41;
+            padding: 12px 40px;
+            border: 2px solid #00ff41;
+            border-radius: 0;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            animation: fadeInUp 1.6s ease;
+            font-family: 'Share Tech Mono', monospace;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-hack::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #00ff41;
+            transition: left 0.3s;
+            z-index: -1;
+        }
+
+        .btn-hack:hover::before {
+            left: 0;
+        }
+
+        .btn-hack:hover {
+            color: #0d0d0d;
+            box-shadow: 0 0 20px #00ff41;
+        }
+
+        /* Terminal Cursor */
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background: #00ff41;
+            animation: blink 1s infinite;
+            margin-left: 5px;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* About Section */
+        #about {
+            padding: 100px 0;
+            background: #0d0d0d;
+            border-bottom: 2px solid #00ff41;
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            color: #00ff41;
+            font-family: 'Share Tech Mono', monospace;
+            text-shadow: 0 0 15px #00ff41;
+        }
+
+        .section-title::before {
+            content: '# ';
+            color: #ff0000;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #00ff41;
+            box-shadow: 0 0 10px #00ff41;
+        }
+
+        .about-text {
+            color: #00ff41;
+        }
+
+        .about-text h3 {
+            color: #00ff41;
+            margin-bottom: 20px;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        .about-text p {
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .contact-info-box {
+            background: rgba(0, 255, 65, 0.05);
+            border: 1px solid #00ff41;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-info-box strong {
+            color: #ff0000;
+        }
+
+        /* Skills Section */
+        #skills {
+            padding: 100px 0;
+            background: #1a1a1a;
+            border-bottom: 2px solid #00ff41;
+        }
+
+        .skill-category {
+            margin-bottom: 50px;
+        }
+
+        .skill-category h3 {
+            color: #ff0000;
+            font-size: 28px;
+            margin-bottom: 30px;
+            font-family: 'Share Tech Mono', monospace;
+            text-shadow: 0 0 10px #ff0000;
+        }
+
+        .skill-category h3::before {
+            content: '>> ';
+        }
+
+        .skill-item {
+            background: rgba(0, 255, 65, 0.05);
+            border: 2px solid #00ff41;
+            padding: 30px 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 255, 65, 0.1);
+            transition: left 0.3s;
+        }
+
+        .skill-item:hover::before {
+            left: 0;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 255, 65, 0.3);
+            border-color: #ff0000;
+        }
+
+        .skill-icon {
+            font-size: 40px;
+            color: #00ff41;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+        }
+
+        .skill-item:hover .skill-icon {
+            color: #ff0000;
+            text-shadow: 0 0 20px #ff0000;
+        }
+
+        .skill-item h5 {
+            color: #00ff41;
+            font-weight: 600;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        /* Projects Section */
+        #projects {
+            padding: 100px 0;
+            background: #0d0d0d;
+            border-bottom: 2px solid #00ff41;
+        }
+
+        .project-card {
+            background: rgba(0, 255, 65, 0.05);
+            border: 2px solid #00ff41;
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(0, 255, 65, 0.03) 10px,
+                rgba(0, 255, 65, 0.03) 20px
+            );
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 255, 65, 0.3);
+            border-color: #ff0000;
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .project-icon {
+            font-size: 40px;
+            color: #00ff41;
+            margin-right: 20px;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover .project-icon {
+            color: #ff0000;
+            text-shadow: 0 0 20px #ff0000;
+        }
+
+        .project-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #00ff41;
+            font-family: 'Share Tech Mono', monospace;
+            margin: 0;
+        }
+
+        .project-description {
+            color: #00ff41;
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .project-tech {
+            margin-bottom: 20px;
+        }
+
+        .tech-badge {
+            display: inline-block;
+            background: rgba(0, 255, 65, 0.1);
+            border: 1px solid #00ff41;
+            padding: 5px 15px;
+            margin: 5px 5px 5px 0;
+            font-size: 12px;
+            color: #00ff41;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        .project-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .project-features li {
+            color: #00ff41;
+            padding: 5px 0;
+            font-size: 13px;
+        }
+
+        .project-features li::before {
+            content: '✓ ';
+            color: #ff0000;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .project-btn {
+            background: transparent;
+            color: #00ff41;
+            padding: 10px 25px;
+            border: 2px solid #00ff41;
+            text-decoration: none;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 14px;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .project-btn:hover {
+            background: #00ff41;
+            color: #0d0d0d;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 100px 0;
+            background: #1a1a1a;
+        }
+
+        /* Professional Contact Form Styling */
+        .contact-form-container {
+            background: rgba(0, 255, 65, 0.03);
+            border: 2px solid #00ff41;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            color: #00ff41;
+            font-family: 'Share Tech Mono', monospace;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .form-label::before {
+            content: '> ';
+            color: #ff0000;
+        }
+
+        .form-control-custom {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0, 255, 65, 0.05);
+            border: 2px solid #00ff41;
+            color: #00ff41;
+            font-family: 'Fira Code', monospace;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .form-control-custom:focus {
+            outline: none;
+            border-color: #ff0000;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+            background: rgba(255, 0, 0, 0.05);
+        }
+
+        .form-control-custom::placeholder {
+            color: rgba(0, 255, 65, 0.4);
+            font-style: italic;
+        }
+
+        textarea.form-control-custom {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .btn-submit {
+            background: transparent;
+            color: #00ff41;
+            padding: 15px 50px;
+            border: 2px solid #00ff41;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #00ff41;
+            transition: left 0.3s;
+            z-index: -1;
+        }
+
+        .btn-submit:hover::before {
+            left: 0;
+        }
+
+        .btn-submit:hover {
+            color: #0d0d0d;
+            box-shadow: 0 0 30px rgba(0, 255, 65, 0.5);
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Success/Error Messages */
+        .message-box {
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 2px solid;
+            font-family: 'Share Tech Mono', monospace;
+            display: none;
+        }
+
+        .message-success {
+            background: rgba(0, 255, 65, 0.1);
+            border-color: #00ff41;
+            color: #00ff41;
+        }
+
+        .message-error {
+            background: rgba(255, 0, 0, 0.1);
+            border-color: #ff0000;
+            color: #ff0000;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(0, 255, 65, 0.05);
+            border: 1px solid #00ff41;
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            border-color: #ff0000;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: transparent;
+            border: 2px solid #00ff41;
+            color: #00ff41;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 20px;
+        }
+
+        .contact-item h5 {
+            color: #ff0000;
+            margin-bottom: 5px;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        .contact-item p,
+        .contact-item a {
+            color: #00ff41;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .contact-item a:hover {
+            color: #ff0000;
+            text-shadow: 0 0 10px #ff0000;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: #00ff41;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 3px solid #00ff41;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: 2px solid #00ff41;
+            color: #00ff41;
+            line-height: 36px;
+            margin: 0 10px;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: #00ff41;
+            color: #0d0d0d;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+        }
+
+        /* Back to Top Button */
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: transparent;
+            border: 2px solid #00ff41;
+            color: #00ff41;
+            font-size: 20px;
+            cursor: pointer;
+            display: none;
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        #backToTop:hover {
+            background: #00ff41;
+            color: #0d0d0d;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glitchText {
+            0%, 100% { text-shadow: 0 0 20px #00ff41; }
+            25% { text-shadow: -2px 0 20px #ff0000, 2px 0 20px #00ff41; }
+            50% { text-shadow: 2px 0 20px #ff0000, -2px 0 20px #00ff41; }
+            75% { text-shadow: -2px 0 20px #00ff41, 2px 0 20px #ff0000; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .hero-content h2 {
+                font-size: 24px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .navbar-brand {
+                font-size: 20px;
+            }
+
+            .project-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .project-icon {
+                margin-bottom: 10px;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0d0d0d;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #00ff41;
+            box-shadow: 0 0 10px #00ff41;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff0000;
+            box-shadow: 0 0 10px #ff0000;
+        }
+    </style>
 </head>
 <body>
-  <h1>🚧 Site Under Maintenance 🚧</h1>
-  <p> Please check back soon!</p>
-  <div class="spinner"></div>
+
+    <!-- Matrix Background Canvas -->
+    <canvas class="matrix-bg" id="matrix"></canvas>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#hero">GOKUL_KRISHNA.exe</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: #00ff41;">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-10">
+                    <div class="hero-content">
+                        <h1>GOKUL KRISHNA R</h1>
+                        <h2>I'm a <span class="typing-text">Cybersecurity Student</span><span class="cursor"></span></h2>
+                        <p>> Ethical Hacker <br>
+                        > Breaking systems to build better security...</p>
+                        <a href="#projects" class="btn-hack">ACCESS_PROJECTS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">ABOUT_ME</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="about-text">
+                        <h3>>> Cybersecurity Student & Ethical Hacker</h3>
+                        <p>Motivated cybersecurity student with hands-on practice in vulnerability scanning, penetration testing, and Capture the Flag (CTF) challenges. Skilled in using industry-standard tools such as Nmap, Burp Suite, Metasploit, Hydra, and John the Ripper within Linux environments (Kali, Ubuntu) for reconnaissance, exploitation, and system security analysis.</p>
+                        
+                        <p>Possess a strong foundation in network protocols, system administration, and information security principles, with practical experience gained through lab-based projects and security-focused coursework. Highly curious and detail-oriented, with proven ability to learn quickly, adapt to new technologies, and apply knowledge to both individual research and team-based security tasks.</p>
+                        
+                        <p>Driven by a passion for ethical hacking, problem-solving, and continuous learning, and eager to contribute technical skills to real-world security projects, organizational defense strategies, and the broader cybersecurity community.</p>
+                        
+                        <div class="contact-info-box">
+                            <p><strong>[!] LOCATION:</strong> Available for Remote/On-site</p>
+                            <p><strong>[!] STATUS:</strong> Active Learning </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">TECHNICAL_ARSENAL</h2>
+            </div>
+            
+            <!-- Tools -->
+            <div class="skill-category">
+                <h3>Security Tools & Frameworks</h3>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <h5>NMAP</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-bug"></i>
+                            </div>
+                            <h5>BURP SUITE</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-unlock-alt"></i>
+                            </div>
+                            <h5>HYDRA</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h5>NIKTO</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-bomb"></i>
+                            </div>
+                            <h5>METASPLOIT</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-key"></i>
+                            </div>
+                            <h5>JOHN THE RIPPER</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Operating Systems -->
+            <div class="skill-category">
+                <h3>Operating Systems</h3>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-windows"></i>
+                            </div>
+                            <h5>WINDOWS</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-ubuntu"></i>
+                            </div>
+                            <h5>UBUNTU</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-linux"></i>
+                            </div>
+                            <h5>KALI LINUX</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-linux"></i>
+                            </div>
+                            <h5>PARROT OS</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">SECURITY_PROJECTS</h2>
+                <p class="mt-3" style="color: #00ff41;">// Building tools and solving challenges</p>
+            </div>
+            
+            <div class="row justify-content-center">
+                <!-- Password Generator Project -->
+                <div class="col-lg-8">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <h3 class="project-title">Password Generator</h3>
+                        </div>
+                        
+                        <p class="project-description">
+                            A secure and customizable password generator built with modern web technologies. Features include adjustable password length (8-20 characters), multiple character set options, real-time strength meter, encrypted password history with master password protection, and theme customization.
+                        </p>
+                        
+                        <div class="project-tech">
+                            <span class="tech-badge">HTML5</span>
+                            <span class="tech-badge">CSS3</span>
+                            <span class="tech-badge">JavaScript ES6</span>
+                            <span class="tech-badge">Web Crypto API</span>
+                            <span class="tech-badge">SHA-256</span>
+                            <span class="tech-badge">LocalStorage</span>
+                        </div>
+                        
+                        <ul class="project-features">
+                            <li>Adjustable password length: 8 to 20 characters</li>
+                            <li>Selectable character sets: lowercase, uppercase, numbers & symbols</li>
+                            <li>Real-time strength meter with color indicators</li>
+                            <li>Password history with master password protection</li>
+                            <li>Dark/Light theme switcher (Radeon/Telegram dark mode)</li>
+                            <li>Secure SHA-256 hashing implementation</li>
+                            <li>Adjustable text size for comfortable viewing</li>
+                            <li>Built with Poppins font for modern aesthetics</li>
+                        </ul>
+                        
+                        <div class="project-links">
+                            <a href="https://github.com/gokulkrishnar16/password-generator" target="_blank" class="project-btn">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                            <a href="https://gokulkrishnar16.github.io/password-generator" target="_blank" class="project-btn">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">ESTABLISH_CONNECTION</h2>
+                <p class="mt-3" style="color: #00ff41;">// Let's collaborate on security projects</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <!-- Professional Custom Form Connected to Google Form -->
+                    <div class="contact-form-container">
+                        <div id="messageBox" class="message-box"></div>
+                        
+                        <form id="contactForm" action="https://docs.google.com/forms/d/e/1FAIpQLSezQJVjBvrjRKGq_QZYvXBR4cWYrWNVPKgVXxfeXxT8s0aaKQ/formResponse" method="POST" target="hidden_iframe">
+                            <div class="form-group">
+                                <label class="form-label">NAME</label>
+                                <input type="text" name="entry.1906510804" class="form-control-custom" placeholder="Enter your name..." required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">EMAIL</label>
+                                <input type="email" name="emailAddress" class="form-control-custom" placeholder="your.email@example.com" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">MESSAGE</label>
+                                <textarea name="entry.839337160" class="form-control-custom" placeholder="Type your message here..." required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn-submit">SEND_MESSAGE</button>
+                        </form>
+                        
+                        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div>
+                                <h5>GitHub</h5>
+                                <a href="https://github.com/gokulkrishnar16" target="_blank">github.com/gokulkrishnar16</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div>
+                                <h5>LinkedIn</h5>
+                                <a href="https://www.linkedin.com/in/gokul-krishna-r-06a45136a" target="_blank">linkedin.com/in/gokul-krishna-r-06a45136a</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-flag"></i>
+                            </div>
+                            <div>
+                                <h5>TryHackMe</h5>
+                                <a href="https://tryhackme.com/p/GokulkrishnaR" target="_blank">tryhackme.com/p/GokulkrishnaR</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links mb-3">
+                <a href="https://github.com/gokulkrishnar16" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/gokul-krishna-r-06a45136a" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://tryhackme.com/p/GokulkrishnaR" target="_blank"><i class="fas fa-flag"></i></a>
+            </div>
+            <p>root@gokul:~# echo "© 2025 Gokul Krishna R. All Rights Reserved."</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Matrix Rain Effect
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const katakana = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const nums = '0123456789';
+        const alphabet = katakana + latin + nums;
+
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const rainDrops = [];
+
+        for (let x = 0; x < columns; x++) {
+            rainDrops[x] = 1;
+        }
+
+        const draw = () => {
+            ctx.fillStyle = 'rgba(13, 13, 13, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#00ff41';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < rainDrops.length; i++) {
+                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+
+                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    rainDrops[i] = 0;
+                }
+                rainDrops[i]++;
+            }
+        };
+
+        setInterval(draw, 30);
+
+        // Resize canvas
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            const backToTop = document.getElementById('backToTop');
+
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+                backToTop.style.display = 'block';
+            } else {
+                navbar.classList.remove('scrolled');
+                backToTop.style.display = 'none';
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Back to top button
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Typing effect
+        const typingText = document.querySelector('.typing-text');
+        const words = ['Cybersecurity Student', 'Ethical Hacker','CTF Player'];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentWord = words[wordIndex];
+
+            if (isDeleting) {
+                typingText.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingText.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                isDeleting = true;
+                setTimeout(type, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                setTimeout(type, 500);
+            } else {
+                setTimeout(type, isDeleting ? 50 : 100);
+            }
+        }
+
+        type();
+
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        const messageBox = document.getElementById('messageBox');
+
+        contactForm.addEventListener('submit', function(e) {
+            const submitBtn = contactForm.querySelector('.btn-submit');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'SENDING...';
+            
+            // Show success message after a short delay
+            setTimeout(() => {
+                messageBox.className = 'message-box message-success';
+                messageBox.textContent = '[✓] Message sent successfully! Will get back to you soon.';
+                messageBox.style.display = 'block';
+                
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'SEND_MESSAGE';
+                contactForm.reset();
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    messageBox.style.display = 'none';
+                }, 5000);
+            }, 1000);
+        });
+    </script>
+
 </body>
 </html>
