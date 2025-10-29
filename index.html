@@ -943,61 +943,110 @@
         </div>
     </section>
 
- <!-- CONTACT SECTION - GOOGLE FORMS INTEGRATION -->
-<section id="contact" class="contact-section">
-    <div class="container">
-        <h2 class="section-title">Contact Me</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Your other meta tags -->
+    <title>Gokul Krishna R | Cybersecurity Portfolio</title>
+    
+    <!-- Your existing CSS files -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Your existing CSS goes here */
+        /* After your existing CSS, add the new contact section styling */
         
-        <div class="contact-content">
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <h3>Email</h3>
-                        <p>gokulkrishnar493@gmail.com</p>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <h3>Location</h3>
-                        <p>Trivandrum, Kerala, India</p>
-                    </div>
-                </div>
-                
-                <div class="social-links">
-                    <a href="https://github.com/gokulkrishnar16" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/gokul-krishna-a13658207" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://www.instagram.com/g._.o._.k._.u._.l._?igsh=MW1vbnR2ODc5cHU4NA==" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </div>
-            </div>
+        /* Professional Contact Section Styling */
+        .contact-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 10px 0;
+        }
+        
+        .contact-item i {
+            font-size: 20px;
+            color: var(--primary);
+            margin-top: 4px;
+        }
+        
+        .contact-item h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        /* Google Form Wrapper Styling */
+        .google-form-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .form-instructions {
+            padding: 15px;
+            background: var(--card-bg);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .form-note {
+            margin: 8px 0;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+        
+        .form-footer {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .form-contact-info {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin: 8px 0;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .contact-content {
+                padding: 20px;
+                border-radius: 12px;
+            }
             
-            <!-- Google Form Embed -->
-            <div class="google-form-container">
-                <iframe 
-                    src="https://docs.google.com/forms/d/e/1FAIpQLSezQJVjBvrjRKGq_QZYvXBR4cWYrWNVPKgVXxfeXxT8s0aaKQ/viewform?embedded=true" 
-                    width="640" 
-                    height="900" 
-                    frameborder="0" 
-                    marginheight="0" 
-                    marginwidth="0">
-                    Loading...
-                </iframe>
-            </div>
-        </div>
-    </div>
-</section>
- 
-                
-                <input type="email" id="email" name="email" placeholder="Your Email (Professional emails only)" required maxlength="255">
-                <div class="email-error" id="emailError">⚠️ Please use a professional email (Gmail, Yahoo, Outlook, Protonmail, etc.)</div>
+            .form-footer {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Your HTML content -->
+</body>
+</html>
+
                 
                 <!-- HONEYPOT - Invisible bot trap -->
                 <input type="text" name="website" id="honeypot" style="position: absolute; left: -9999px; width: 1px; height: 1px;" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -1379,4 +1428,5 @@
     </script>
 </body>
 </html>
+
 
