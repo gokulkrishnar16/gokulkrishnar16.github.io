@@ -81,7 +81,6 @@
             font-size: 16px;
         }
 
-        /* Adjust base font size for different screens */
         @media (max-width: 768px) {
             html {
                 font-size: 14px;
@@ -104,7 +103,6 @@
             min-height: 100vh;
         }
 
-        /* Grid Background */
         body::before {
             content: "";
             position: fixed;
@@ -126,7 +124,6 @@
             color: var(--bg-primary);
         }
 
-        /* Scrollbar */
         ::-webkit-scrollbar {
             width: clamp(8px, 1vw, 10px);
         }
@@ -145,7 +142,7 @@
         }
 
         /* ============================================
-           THEME TOGGLE - Responsive
+           THEME TOGGLE
            ============================================ */
         .theme-toggle {
             position: fixed;
@@ -177,7 +174,7 @@
         }
 
         /* ============================================
-           NAVIGATION - Fully Responsive
+           NAVIGATION
            ============================================ */
         nav {
             position: fixed;
@@ -238,7 +235,7 @@
         }
 
         /* ============================================
-           HERO SECTION - Fully Responsive
+           HERO SECTION
            ============================================ */
         .hero {
             min-height: 100vh;
@@ -426,7 +423,7 @@
         }
 
         /* ============================================
-           SECTIONS - Responsive
+           SECTIONS
            ============================================ */
         section {
             padding: var(--spacing-2xl) var(--container-padding);
@@ -454,7 +451,7 @@
         }
 
         /* ============================================
-           TERMINAL - Responsive
+           TERMINAL
            ============================================ */
         .terminal-container {
             background: var(--bg-card);
@@ -565,7 +562,7 @@
         }
 
         /* ============================================
-           SKILLS - Responsive Grid
+           SKILLS
            ============================================ */
         .skills-wrapper {
             display: grid;
@@ -621,7 +618,7 @@
         }
 
         /* ============================================
-           CARDS - Responsive
+           CARDS
            ============================================ */
         .info-card,
         .project-card {
@@ -697,7 +694,7 @@
         }
 
         /* ============================================
-           CONTACT FORM - Fully Responsive
+           CONTACT FORM
            ============================================ */
         .contact-form {
             max-width: 700px;
@@ -765,7 +762,7 @@
         }
 
         /* ============================================
-           FOOTER - Responsive
+           FOOTER
            ============================================ */
         footer {
             text-align: center;
@@ -778,7 +775,7 @@
         }
 
         /* ============================================
-           SCROLL TO TOP - Responsive
+           SCROLL TO TOP
            ============================================ */
         .scroll-top {
             position: fixed;
@@ -809,47 +806,6 @@
         .scroll-top:hover {
             transform: translateY(-8px);
             box-shadow: 0 10px 30px var(--glow);
-        }
-
-        /* ============================================
-           RESPONSIVE BREAKPOINTS
-           ============================================ */
-        
-        /* Small phones */
-        @media (max-width: 375px) {
-            .nav-links a {
-                padding: 6px 10px;
-                font-size: 0.65rem;
-            }
-            
-            .profile-name {
-                letter-spacing: -1px;
-            }
-        }
-
-        /* Tablets - Portrait */
-        @media (min-width: 768px) and (max-width: 1024px) {
-            .hero {
-                padding: 140px var(--container-padding) var(--spacing-2xl);
-            }
-            
-            .skills-wrapper {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        /* Tablets - Landscape & Small Laptops */
-        @media (min-width: 1024px) and (max-width: 1366px) {
-            .container {
-                max-width: 90%;
-            }
-        }
-
-        /* Large Screens */
-        @media (min-width: 1920px) {
-            .container {
-                max-width: 1400px;
-            }
         }
 
         /* Touch devices - Increase tap targets */
@@ -1022,25 +978,21 @@
         </div>
     </section>
 
-  <!-- Contact Section -->
-<section id="contact">
-    <div class="container">
-        <h2 class="section-title">Contact</h2>
-        <form class="contact-form" id="contactForm">
-            <div id="result" style="display:none; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; text-align: center; font-weight: 600;"></div>
-            
-            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <input type="text" name="subject" placeholder="Subject" required>
-            <textarea name="message" placeholder="Your Message" required></textarea>
-            <button type="submit" id="submitBtn">
-                <i class="fas fa-paper-plane"></i> Send Message
-            </button>
-        </form>
-    </div>
-</section>
-
+    <!-- Contact Section - MAILTO VERSION -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <form class="contact-form" id="contactForm">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </form>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>
@@ -1054,7 +1006,9 @@
 
     <!-- JavaScript -->
     <script>
-        // Theme Toggle
+        // ============================================
+        // THEME TOGGLE
+        // ============================================
         const themeToggle = document.getElementById('themeToggle');
         const body = document.body;
         const icon = themeToggle.querySelector('i');
@@ -1081,7 +1035,9 @@
             }
         });
 
-        // Smooth Scroll Navigation
+        // ============================================
+        // SMOOTH SCROLL NAVIGATION
+        // ============================================
         document.querySelectorAll('.nav-links a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1099,7 +1055,9 @@
             });
         });
 
-        // Scroll Effects
+        // ============================================
+        // SCROLL EFFECTS
+        // ============================================
         const scrollTopBtn = document.getElementById('scrollTop');
         const navbar = document.getElementById('navbar');
 
@@ -1139,7 +1097,33 @@
             });
         });
 
-        // Section Fade-in Animation
+        // ============================================
+        // MAILTO CONTACT FORM - WORKS INSTANTLY!
+        // ============================================
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Create mailto link with all form data
+            const mailtoLink = `mailto:gokulkrishnar16@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent('From: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message)}`;
+            
+            // Open default email client
+            window.location.href = mailtoLink;
+            
+            // Optional: Reset form after opening email client
+            // setTimeout(() => {
+            //     contactForm.reset();
+            // }, 1000);
+        });
+
+        // ============================================
+        // SECTION FADE-IN ANIMATION
+        // ============================================
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1161,4 +1145,3 @@
     </script>
 </body>
 </html>
-
