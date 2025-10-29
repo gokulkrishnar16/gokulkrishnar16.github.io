@@ -1,905 +1,1163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="google-site-verification" content="rJlp1SeUwrc_7u54sHZTnPZDKdhE3TC-uKD4q1olR1A">
-<title>Gokul Krishna R - Portfolio</title>
-<link rel="icon" href="https://gokulkrishnar16.github.io/portfolio_icon1.png" type="image/png">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --primary: #00ff88;
-    --secondary: #0affff;
-    --accent: #ff0080;
-    --bg-primary: #0a0a0a;
-    --bg-secondary: #0d1117;
-    --bg-card: rgba(13, 17, 23, 0.95);
-    --text-primary: #ffffff;
-    --text-secondary: #a8b3cf;
-    --border-color: rgba(0, 255, 136, 0.3);
-    --glow: rgba(0, 255, 136, 0.5);
-    --shadow: rgba(0, 0, 0, 0.5);
-}
-
-[data-theme="light"] {
-    --primary: #00cc70;
-    --secondary: #0099cc;
-    --accent: #ff0066;
-    --bg-primary: #f8f9fa;
-    --bg-secondary: #ffffff;
-    --bg-card: rgba(255, 255, 255, 0.95);
-    --text-primary: #1a1a1a;
-    --text-secondary: #4a5568;
-    --border-color: rgba(0, 204, 112, 0.3);
-    --glow: rgba(0, 204, 112, 0.3);
-    --shadow: rgba(0, 0, 0, 0.1);
-}
-
-body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    line-height: 1.6;
-    overflow-x: hidden;
-    transition: all 0.4s ease;
-}
-
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image:
-        linear-gradient(var(--border-color) 1px, transparent 1px),
-        linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
-    background-size: 80px 80px;
-    z-index: 0;
-    pointer-events: none;
-    opacity: 0.2;
-}
-
-/* Theme Toggle */
-.theme-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    background: var(--bg-card);
-    border: 2px solid var(--border-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10000;
-    transition: all 0.4s ease;
-    box-shadow: 0 4px 20px var(--shadow);
-}
-
-.theme-toggle:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 30px var(--glow);
-    border-color: var(--primary);
-}
-
-.theme-toggle i {
-    font-size: 1.5rem;
-    color: var(--primary);
-}
-
-/* Navigation */
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: var(--bg-card);
-    backdrop-filter: blur(20px);
-    padding: 20px 0;
-    z-index: 9999;
-    border-bottom: 1px solid var(--border-color);
-    box-shadow: 0 4px 20px var(--shadow);
-    transition: all 0.4s ease;
-}
-
-nav .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.nav-links {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-}
-
-.nav-links a {
-    font-family: 'Fira Code', monospace;
-    color: var(--text-secondary);
-    text-decoration: none;
-    padding: 10px 20px;
-    border: 1px solid transparent;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-    color: var(--primary);
-    border-color: var(--border-color);
-    background: rgba(0, 255, 136, 0.05);
-}
-
-/* Hero Section - Clean and Professional */
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 120px 20px 60px;
-    position: relative;
-    z-index: 1;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
-    top: -300px;
-    right: -300px;
-    animation: pulse 8s ease-in-out infinite;
-    pointer-events: none;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 0.2; }
-    50% { transform: scale(1.3); opacity: 0.3; }
-}
-
-.hero-content {
-    max-width: 900px;
-    width: 100%;
-    text-align: center;
-    position: relative;
-    z-index: 2;
-}
-
-/* Clean Professional Card - No GK Circle */
-.profile-card {
-    background: var(--bg-card);
-    border: 2px solid var(--border-color);
-    border-radius: 20px;
-    padding: 80px 60px;
-    backdrop-filter: blur(20px);
-    box-shadow: 0 20px 60px var(--shadow);
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s ease;
-}
-
-.profile-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
-    animation: slideGlow 3s ease-in-out infinite;
-}
-
-@keyframes slideGlow {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
-}
-
-.profile-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 30px 80px var(--shadow), 0 0 40px var(--glow);
-}
-
-/* Professional Name */
-.profile-name {
-    font-family: 'Inter', sans-serif;
-    font-size: 4.5rem;
-    font-weight: 900;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 20px;
-    letter-spacing: -2px;
-    animation: fadeInUp 1s ease;
-}
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Professional Role */
-.profile-role {
-    font-family: 'Fira Code', monospace;
-    font-size: 1.3rem;
-    color: var(--text-secondary);
-    margin-bottom: 40px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    animation: fadeInUp 1s ease 0.2s backwards;
-    font-weight: 600;
-}
-
-.profile-role::before {
-    content: '◆ ';
-    color: var(--primary);
-    margin-right: 8px;
-}
-
-.profile-role::after {
-    content: ' ◆';
-    color: var(--primary);
-    margin-left: 8px;
-}
-
-/* Description */
-.profile-description {
-    font-size: 1.15rem;
-    color: var(--text-secondary);
-    max-width: 650px;
-    margin: 0 auto 50px;
-    line-height: 1.8;
-    animation: fadeInUp 1s ease 0.4s backwards;
-}
-
-/* Social Links */
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    animation: fadeInUp 1s ease 0.6s backwards;
-}
-
-.social-links a {
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--bg-secondary);
-    border: 2px solid var(--border-color);
-    border-radius: 12px;
-    color: var(--primary);
-    font-size: 1.5rem;
-    transition: all 0.4s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.social-links a::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: var(--primary);
-    transform: translateY(100%);
-    transition: transform 0.4s ease;
-}
-
-.social-links a i {
-    position: relative;
-    z-index: 1;
-    transition: all 0.4s ease;
-}
-
-.social-links a:hover::before {
-    transform: translateY(0);
-}
-
-.social-links a:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 30px var(--glow);
-    border-color: var(--primary);
-}
-
-.social-links a:hover i {
-    color: var(--bg-primary);
-}
-
-/* Sections */
-section {
-    padding: 100px 20px;
-    position: relative;
-    z-index: 1;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.section-title {
-    font-family: 'Inter', sans-serif;
-    font-size: 3rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 60px;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-/* Terminal */
-.terminal-container {
-    background: var(--bg-card);
-    border: 2px solid var(--border-color);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 40px var(--shadow);
-    transition: all 0.4s ease;
-}
-
-.terminal-container:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 60px var(--shadow), 0 0 40px var(--glow);
-}
-
-.terminal-header {
-    background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
-    padding: 15px 20px;
-    display: flex;
-    align-items: center;
-    border-bottom: 2px solid var(--border-color);
-    gap: 16px;
-}
-
-.terminal-buttons {
-    display: flex;
-    gap: 8px;
-}
-
-.terminal-button {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.terminal-button.close { background: #ff5f57; box-shadow: 0 0 10px #ff5f57; }
-.terminal-button.minimize { background: #febc2e; box-shadow: 0 0 10px #febc2e; }
-.terminal-button.maximize { background: #28c840; box-shadow: 0 0 10px #28c840; }
-
-.terminal-title {
-    color: var(--secondary);
-    font-size: 0.95rem;
-    font-family: 'Fira Code', monospace;
-    font-weight: 600;
-}
-
-.terminal-body {
-    padding: 40px;
-    font-family: 'Fira Code', monospace;
-    background: var(--bg-secondary);
-}
-
-.terminal-line { margin-bottom: 12px; }
-.terminal-prompt { color: var(--secondary); font-weight: 600; }
-.terminal-command { color: var(--primary); margin-left: 8px; }
-.terminal-output { margin: 25px 0; padding-left: 20px; border-left: 3px solid var(--primary); }
-.terminal-output p { color: var(--text-secondary); margin-bottom: 20px; line-height: 1.9; }
-.terminal-cursor { color: var(--primary); animation: blink 1s step-end infinite; }
-
-@keyframes blink { 50% { opacity: 0; } }
-
-/* Skills */
-.skills-wrapper {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 35px;
-}
-
-.skills-column {
-    background: var(--bg-card);
-    border: 2px solid var(--border-color);
-    border-radius: 20px;
-    padding: 40px;
-    transition: all 0.4s ease;
-}
-
-.skills-column:hover {
-    border-color: var(--primary);
-    box-shadow: 0 15px 50px var(--shadow), 0 0 40px var(--glow);
-    transform: translateY(-10px);
-}
-
-.skills-column h3 {
-    font-family: 'Fira Code', monospace;
-    color: var(--primary);
-    font-size: 1.4rem;
-    margin-bottom: 30px;
-    text-transform: uppercase;
-}
-
-.skills-column h3::before {
-    content: '▸ ';
-    color: var(--secondary);
-}
-
-.badge-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.badge-img {
-    height: 32px;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-}
-
-.badge-img:hover {
-    transform: scale(1.15) translateY(-5px);
-    filter: drop-shadow(0 8px 15px var(--glow));
-}
-
-/* Cards */
-.info-card, .project-card {
-    background: var(--bg-card);
-    border: 2px solid var(--border-color);
-    border-radius: 20px;
-    padding: 40px;
-    margin-bottom: 35px;
-    transition: all 0.4s ease;
-}
-
-.info-card:hover, .project-card:hover {
-    border-color: var(--primary);
-    box-shadow: 0 15px 50px var(--shadow), 0 0 40px var(--glow);
-    transform: translateY(-8px);
-}
-
-.info-card h3, .project-card h3 {
-    font-family: 'Fira Code', monospace;
-    color: var(--primary);
-    font-size: 1.6rem;
-    margin-bottom: 20px;
-}
-
-.info-card h3::before, .project-card h3::before {
-    content: '// ';
-    color: var(--secondary);
-}
-
-.info-card p, .project-card p {
-    color: var(--text-secondary);
-    line-height: 1.9;
-    font-size: 1.05rem;
-}
-
-.project-links {
-    display: flex;
-    gap: 20px;
-    margin-top: 30px;
-    flex-wrap: wrap;
-}
-
-.project-links a {
-    font-family: 'Fira Code', monospace;
-    color: var(--primary);
-    text-decoration: none;
-    padding: 14px 30px;
-    border: 2px solid var(--border-color);
-    border-radius: 12px;
-    font-weight: 700;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-}
-
-.project-links a:hover {
-    background: var(--primary);
-    color: var(--bg-primary);
-    box-shadow: 0 8px 25px var(--glow);
-    transform: translateY(-3px);
-}
-
-/* Contact Form */
-.contact-form {
-    max-width: 750px;
-    margin: 0 auto;
-    background: var(--bg-card);
-    border: 2px solid var(--border-color);
-    border-radius: 20px;
-    padding: 50px;
-    box-shadow: 0 15px 50px var(--shadow);
-}
-
-.contact-form input, .contact-form textarea {
-    width: 100%;
-    background: var(--bg-secondary);
-    border: 2px solid var(--border-color);
-    border-radius: 12px;
-    padding: 18px 22px;
-    margin-bottom: 25px;
-    font-family: 'Inter', sans-serif;
-    color: var(--text-primary);
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.contact-form input:focus, .contact-form textarea:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 20px var(--glow);
-}
-
-.contact-form textarea {
-    resize: vertical;
-    min-height: 150px;
-}
-
-.contact-form button {
-    width: 100%;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: var(--bg-primary);
-    border: none;
-    border-radius: 12px;
-    padding: 18px;
-    font-family: 'Fira Code', monospace;
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.4s ease;
-}
-
-.contact-form button:hover {
-    box-shadow: 0 10px 40px var(--glow);
-    transform: translateY(-5px);
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 40px 20px;
-    background: var(--bg-card);
-    border-top: 2px solid var(--border-color);
-    font-family: 'Fira Code', monospace;
-    color: var(--text-secondary);
-}
-
-/* Scroll to Top */
-.scroll-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 55px;
-    height: 55px;
-    background: var(--primary);
-    color: var(--bg-primary);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.4s ease;
-    z-index: 9998;
-    box-shadow: 0 5px 20px var(--glow);
-}
-
-.scroll-top.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-.scroll-top:hover {
-    transform: translateY(-10px);
-}
-
-/* Responsive */
-@media (max-width: 968px) {
-    .profile-name { font-size: 3rem; }
-    .profile-role { font-size: 1.1rem; }
-    .section-title { font-size: 2.2rem; }
-}
-
-@media (max-width: 768px) {
-    .profile-card { padding: 50px 30px; }
-    .contact-form { padding: 35px 25px; }
-}
-
-html { scroll-behavior: smooth; }
-::selection { background: var(--primary); color: var(--bg-primary); }
-::-webkit-scrollbar { width: 10px; }
-::-webkit-scrollbar-track { background: var(--bg-primary); }
-::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 5px; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="rJlp1SeUwrc_7u54sHZTnPZDKdhE3TC-uKD4q1olR1A">
+    <meta name="description" content="Gokul Krishna R - Cybersecurity Student Portfolio. Ethical hacking, penetration testing, and security tools expertise.">
+    <title>Gokul Krishna R | Cybersecurity Portfolio</title>
+    <link rel="icon" href="https://gokulkrishnar16.github.io/portfolio_icon1.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+        /* ============================================
+           RESET & VARIABLES
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Colors */
+            --primary: #22D3EE;
+            --secondary: #38BDF8;
+            --accent: #0EA5E9;
+            --bg-primary: #0F172A;
+            --bg-secondary: #1E293B;
+            --bg-card: #1E293B;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --text-muted: #64748B;
+            --border-color: #334155;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --glow: rgba(34, 211, 238, 0.4);
+            --shadow: rgba(0, 0, 0, 0.5);
+            
+            /* Typography - Fluid sizing */
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+            
+            /* Responsive Spacing */
+            --spacing-xs: clamp(0.25rem, 1vw, 0.5rem);
+            --spacing-sm: clamp(0.5rem, 2vw, 1rem);
+            --spacing-md: clamp(1rem, 2.5vw, 1.5rem);
+            --spacing-lg: clamp(1.5rem, 3vw, 2rem);
+            --spacing-xl: clamp(2rem, 4vw, 3rem);
+            --spacing-2xl: clamp(3rem, 5vw, 4rem);
+            
+            /* Container */
+            --container-padding: clamp(1rem, 5vw, 2rem);
+            --max-width: 1200px;
+            --border-radius: clamp(8px, 1vw, 12px);
+            --transition: 0.3s ease;
+        }
+
+        [data-theme="light"] {
+            --primary: #0EA5E9;
+            --secondary: #0284C7;
+            --accent: #0369A1;
+            --bg-primary: #F8FAFC;
+            --bg-secondary: #FFFFFF;
+            --bg-card: #FFFFFF;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --text-muted: #64748B;
+            --border-color: #E2E8F0;
+            --glow: rgba(14, 165, 233, 0.2);
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        /* ============================================
+           BASE STYLES
+           ============================================ */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+            font-size: 16px;
+        }
+
+        /* Adjust base font size for different screens */
+        @media (max-width: 768px) {
+            html {
+                font-size: 14px;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            html {
+                font-size: 18px;
+            }
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background 0.4s ease, color 0.4s ease;
+            min-height: 100vh;
+        }
+
+        /* Grid Background */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(var(--border-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
+            background-size: clamp(30px, 5vw, 50px) clamp(30px, 5vw, 50px);
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        ::selection {
+            background: var(--primary);
+            color: var(--bg-primary);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: clamp(8px, 1vw, 10px);
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary);
+        }
+
+        /* ============================================
+           THEME TOGGLE - Responsive
+           ============================================ */
+        .theme-toggle {
+            position: fixed;
+            top: clamp(10px, 2vw, 20px);
+            right: clamp(10px, 2vw, 20px);
+            width: clamp(45px, 8vw, 55px);
+            height: clamp(45px, 8vw, 55px);
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10000;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            border-color: var(--primary);
+            box-shadow: 0 6px 25px var(--glow);
+        }
+
+        .theme-toggle i {
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            color: var(--primary);
+        }
+
+        /* ============================================
+           NAVIGATION - Fully Responsive
+           ============================================ */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            padding: clamp(12px, 2vw, 18px) 0;
+            z-index: 9999;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="light"] nav {
+            background: rgba(248, 250, 252, 0.95);
+        }
+
+        nav.scrolled {
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+
+        nav .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: clamp(4px, 1vw, 8px);
+            flex-wrap: wrap;
+            list-style: none;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            font-family: var(--font-mono);
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: clamp(8px, 1.5vw, 10px) clamp(12px, 2vw, 20px);
+            border: 1px solid transparent;
+            border-radius: clamp(6px, 1vw, 8px);
+            font-weight: 600;
+            font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+            border-color: var(--border-color);
+            background: rgba(34, 211, 238, 0.1);
+        }
+
+        /* ============================================
+           HERO SECTION - Fully Responsive
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(100px, 15vh, 120px) var(--container-padding) var(--spacing-2xl);
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: clamp(300px, 50vw, 600px);
+            height: clamp(300px, 50vw, 600px);
+            background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
+            top: clamp(-150px, -20vw, -200px);
+            right: clamp(-150px, -20vw, -200px);
+            animation: pulse 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes pulse {
+            0%, 100% { 
+                transform: scale(1); 
+                opacity: 0.3; 
+            }
+            50% { 
+                transform: scale(1.2); 
+                opacity: 0.5; 
+            }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: clamp(2rem, 6vw, 4rem) clamp(1.5rem, 4vw, 3rem);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 60px var(--shadow);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .profile-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: clamp(3px, 0.5vw, 4px);
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            animation: slideGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes slideGlow {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        .profile-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 80px var(--shadow), 0 0 50px var(--glow);
+            border-color: var(--primary);
+        }
+
+        .profile-name {
+            font-size: clamp(1.8rem, 5vw + 1rem, 4.5rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--spacing-md);
+            letter-spacing: -2px;
+            animation: fadeInUp 1s ease;
+            line-height: 1.2;
+        }
+
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        .profile-role {
+            font-family: var(--font-mono);
+            font-size: clamp(0.85rem, 2vw, 1.3rem);
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-xl);
+            text-transform: uppercase;
+            letter-spacing: clamp(1px, 0.3vw, 3px);
+            animation: fadeInUp 1s ease 0.2s backwards;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .profile-role::before {
+            content: '◆ ';
+            color: var(--primary);
+            margin-right: clamp(4px, 1vw, 8px);
+        }
+
+        .profile-role::after {
+            content: ' ◆';
+            color: var(--primary);
+            margin-left: clamp(4px, 1vw, 8px);
+        }
+
+        .profile-description {
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin: 0 auto var(--spacing-xl);
+            line-height: 1.8;
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: clamp(12px, 2vw, 20px);
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s backwards;
+        }
+
+        .social-links a {
+            width: clamp(45px, 8vw, 55px);
+            height: clamp(45px, 8vw, 55px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: clamp(8px, 1.5vw, 10px);
+            color: var(--primary);
+            font-size: clamp(1.2rem, 2.5vw, 1.4rem);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-links a::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--primary);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .social-links a i {
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover::before {
+            transform: translateY(0);
+        }
+
+        .social-links a:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px var(--glow);
+            border-color: var(--primary);
+        }
+
+        .social-links a:hover i {
+            color: var(--bg-primary);
+        }
+
+        /* ============================================
+           SECTIONS - Responsive
+           ============================================ */
+        section {
+            padding: var(--spacing-2xl) var(--container-padding);
+            position: relative;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw + 0.5rem, 3rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--spacing-2xl);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: clamp(1px, 0.3vw, 2px);
+            line-height: 1.2;
+        }
+
+        /* ============================================
+           TERMINAL - Responsive
+           ============================================ */
+        .terminal-container {
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 40px var(--shadow);
+            transition: all 0.4s ease;
+        }
+
+        .terminal-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px var(--shadow), 0 0 40px var(--glow);
+            border-color: var(--primary);
+        }
+
+        .terminal-header {
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
+            padding: clamp(12px, 2vw, 15px) clamp(15px, 3vw, 20px);
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid var(--border-color);
+            gap: clamp(12px, 2vw, 16px);
+        }
+
+        .terminal-buttons {
+            display: flex;
+            gap: clamp(6px, 1vw, 8px);
+        }
+
+        .terminal-button {
+            width: clamp(12px, 2vw, 14px);
+            height: clamp(12px, 2vw, 14px);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .terminal-button:hover {
+            transform: scale(1.1);
+        }
+
+        .terminal-button.close {
+            background: #EF4444;
+            box-shadow: 0 0 10px #EF4444;
+        }
+
+        .terminal-button.minimize {
+            background: #F59E0B;
+            box-shadow: 0 0 10px #F59E0B;
+        }
+
+        .terminal-button.maximize {
+            background: #10B981;
+            box-shadow: 0 0 10px #10B981;
+        }
+
+        .terminal-title {
+            color: var(--secondary);
+            font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+            font-family: var(--font-mono);
+            font-weight: 600;
+        }
+
+        .terminal-body {
+            padding: clamp(1.5rem, 4vw, 3rem);
+            font-family: var(--font-mono);
+            background: var(--bg-secondary);
+            font-size: clamp(0.85rem, 1.5vw, 1rem);
+        }
+
+        .terminal-line {
+            margin-bottom: clamp(8px, 1.5vw, 12px);
+            word-break: break-word;
+        }
+
+        .terminal-prompt {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .terminal-command {
+            color: var(--primary);
+            margin-left: clamp(6px, 1vw, 8px);
+        }
+
+        .terminal-output {
+            margin: var(--spacing-lg) 0;
+            padding-left: var(--spacing-md);
+            border-left: clamp(2px, 0.5vw, 3px) solid var(--primary);
+        }
+
+        .terminal-output p {
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.9;
+        }
+
+        .terminal-cursor {
+            color: var(--primary);
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* ============================================
+           SKILLS - Responsive Grid
+           ============================================ */
+        .skills-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+            gap: clamp(1.5rem, 3vw, 2rem);
+        }
+
+        .skills-column {
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: clamp(1.5rem, 4vw, 2.5rem);
+            transition: all 0.4s ease;
+        }
+
+        .skills-column:hover {
+            border-color: var(--primary);
+            box-shadow: 0 15px 50px var(--shadow), 0 0 40px var(--glow);
+            transform: translateY(-8px);
+        }
+
+        .skills-column h3 {
+            font-family: var(--font-mono);
+            color: var(--primary);
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            margin-bottom: var(--spacing-lg);
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        .skills-column h3::before {
+            content: '▸';
+            color: var(--secondary);
+        }
+
+        .badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: clamp(10px, 2vw, 12px);
+        }
+
+        .badge-img {
+            height: clamp(28px, 5vw, 32px);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .badge-img:hover {
+            transform: scale(1.15) translateY(-5px);
+            filter: drop-shadow(0 8px 20px var(--glow));
+        }
+
+        /* ============================================
+           CARDS - Responsive
+           ============================================ */
+        .info-card,
+        .project-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: clamp(1.5rem, 4vw, 2.5rem);
+            margin-bottom: var(--spacing-lg);
+            transition: all 0.4s ease;
+        }
+
+        .info-card:hover,
+        .project-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 15px 50px var(--shadow), 0 0 40px var(--glow);
+            transform: translateY(-8px);
+        }
+
+        .info-card h3,
+        .project-card h3 {
+            font-family: var(--font-mono);
+            color: var(--primary);
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            flex-wrap: wrap;
+        }
+
+        .info-card h3::before,
+        .project-card h3::before {
+            content: '//';
+            color: var(--secondary);
+        }
+
+        .info-card p,
+        .project-card p {
+            color: var(--text-secondary);
+            line-height: 1.9;
+            font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+        }
+
+        .project-links {
+            display: flex;
+            gap: clamp(12px, 2vw, 20px);
+            margin-top: var(--spacing-lg);
+            flex-wrap: wrap;
+        }
+
+        .project-links a {
+            font-family: var(--font-mono);
+            color: var(--primary);
+            text-decoration: none;
+            padding: clamp(10px, 2vw, 12px) clamp(20px, 3vw, 24px);
+            border: 2px solid var(--border-color);
+            border-radius: clamp(6px, 1vw, 8px);
+            font-weight: 700;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        .project-links a:hover {
+            background: var(--primary);
+            color: var(--bg-primary);
+            box-shadow: 0 8px 25px var(--glow);
+            transform: translateY(-3px);
+            border-color: var(--primary);
+        }
+
+        /* ============================================
+           CONTACT FORM - Fully Responsive
+           ============================================ */
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: clamp(1.5rem, 5vw, 3rem);
+            box-shadow: 0 15px 50px var(--shadow);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: clamp(6px, 1vw, 8px);
+            padding: clamp(14px, 2vw, 16px) clamp(18px, 2.5vw, 20px);
+            margin-bottom: var(--spacing-md);
+            font-family: var(--font-primary);
+            color: var(--text-primary);
+            font-size: clamp(0.95rem, 1.8vw, 1rem);
+            transition: all 0.3s ease;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.1);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: clamp(120px, 20vw, 150px);
+        }
+
+        .contact-form button {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--bg-primary);
+            border: none;
+            border-radius: clamp(6px, 1vw, 8px);
+            padding: clamp(14px, 2vw, 16px);
+            font-family: var(--font-mono);
+            font-size: clamp(0.95rem, 1.8vw, 1rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-xs);
+        }
+
+        .contact-form button:hover {
+            box-shadow: 0 10px 40px var(--glow);
+            transform: translateY(-3px);
+        }
+
+        /* ============================================
+           FOOTER - Responsive
+           ============================================ */
+        footer {
+            text-align: center;
+            padding: clamp(1.5rem, 4vw, 2.5rem) var(--container-padding);
+            background: var(--bg-card);
+            border-top: 2px solid var(--border-color);
+            font-family: var(--font-mono);
+            color: var(--text-secondary);
+            font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+        }
+
+        /* ============================================
+           SCROLL TO TOP - Responsive
+           ============================================ */
+        .scroll-top {
+            position: fixed;
+            bottom: clamp(20px, 3vw, 30px);
+            right: clamp(20px, 3vw, 30px);
+            width: clamp(45px, 8vw, 50px);
+            height: clamp(45px, 8vw, 50px);
+            background: var(--primary);
+            color: var(--bg-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 9998;
+            box-shadow: 0 5px 20px var(--glow);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px var(--glow);
+        }
+
+        /* ============================================
+           RESPONSIVE BREAKPOINTS
+           ============================================ */
+        
+        /* Small phones */
+        @media (max-width: 375px) {
+            .nav-links a {
+                padding: 6px 10px;
+                font-size: 0.65rem;
+            }
+            
+            .profile-name {
+                letter-spacing: -1px;
+            }
+        }
+
+        /* Tablets - Portrait */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .hero {
+                padding: 140px var(--container-padding) var(--spacing-2xl);
+            }
+            
+            .skills-wrapper {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Tablets - Landscape & Small Laptops */
+        @media (min-width: 1024px) and (max-width: 1366px) {
+            .container {
+                max-width: 90%;
+            }
+        }
+
+        /* Large Screens */
+        @media (min-width: 1920px) {
+            .container {
+                max-width: 1400px;
+            }
+        }
+
+        /* Touch devices - Increase tap targets */
+        @media (hover: none) {
+            .nav-links a,
+            .social-links a,
+            .project-links a,
+            .theme-toggle,
+            .scroll-top {
+                min-height: 44px;
+                min-width: 44px;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<div class="theme-toggle" id="themeToggle">
-    <i class="fas fa-moon"></i>
-</div>
-
-<nav>
-    <div class="container">
-        <div class="nav-links">
-            <a href="#about" class="active">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#education">Education</a>
-            <a href="#certificates">Certificates</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </div>
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
     </div>
-</nav>
 
-<section class="hero">
-    <div class="hero-content">
-        <div class="profile-card">
-            <h1 class="profile-name">Gokul Krishna R</h1>
-            <p class="profile-role">Cybersecurity Student</p>
-            <p class="profile-description">
-                Passionate about ethical hacking, penetration testing, and securing digital infrastructure. 
-                Skilled in vulnerability assessment, CTF challenges, and modern security tools.
-            </p>
-            <div class="social-links">
-                <a href="https://github.com/gokulkrishnar16" target="_blank" title="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="mailto:gokulkrishnar16@gmail.com" title="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/gokul-krishna-r-06a45136a" target="_blank" title="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://www.instagram.com/gokullkr" target="_blank" title="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <div class="nav-links">
+                <a href="#about" class="active">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#education">Education</a>
+                <a href="#certificates">Certificates</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
             </div>
         </div>
-    </div>
-</section>
+    </nav>
 
-<section id="about">
-    <div class="container">
-        <div class="terminal-container">
-            <div class="terminal-header">
-                <div class="terminal-buttons">
-                    <span class="terminal-button close"></span>
-                    <span class="terminal-button minimize"></span>
-                    <span class="terminal-button maximize"></span>
-                </div>
-                <div class="terminal-title">gokul@parrot:~</div>
-            </div>
-            <div class="terminal-body">
-                <div class="terminal-line">
-                    <span class="terminal-prompt">┌──(gokul㉿parrot)-[~]</span>
-                </div>
-                <div class="terminal-line">
-                    <span class="terminal-prompt">└─$</span> <span class="terminal-command">cat about.txt</span>
-                </div>
-                <div class="terminal-output">
-                    <p>Motivated cybersecurity student with hands-on practice in vulnerability scanning, penetration testing, and Capture the Flag (CTF) challenges. Skilled in using industry-standard tools such as Nmap, Burp Suite, Metasploit, Hydra, and John the Ripper within Linux environments (Kali, Ubuntu) for reconnaissance, exploitation, and system security analysis.</p>
-                    <p>Possess a strong foundation in network protocols, system administration, and information security principles, with practical experience gained through lab-based projects and security-focused coursework. Highly curious and detail-oriented, with proven ability to learn quickly, adapt to new technologies, and apply knowledge to both individual research and team-based security tasks.</p>
-                    <p>Driven by a passion for ethical hacking, problem-solving, and continuous learning, and eager to contribute technical skills to real-world security projects, organizational defense strategies, and the broader cybersecurity community.</p>
-                </div>
-                <div class="terminal-line">
-                    <span class="terminal-prompt">┌──(gokul㉿parrot)-[~]</span>
-                </div>
-                <div class="terminal-line">
-                    <span class="terminal-prompt">└─$</span> <span class="terminal-cursor">█</span>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="profile-card">
+                <h1 class="profile-name">Hi, I am Gokul Krishna R</h1>
+                <p class="profile-role">Cybersecurity Student</p>
+                <p class="profile-description">
+                    Passionate about ethical hacking, penetration testing, and securing digital infrastructure.
+                    Skilled in vulnerability assessment, CTF challenges, and modern security tools.
+                </p>
+                <div class="social-links">
+                    <a href="https://github.com/gokulkrishnar16" target="_blank" rel="noopener noreferrer" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:gokulkrishnar16@gmail.com" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/gokul-krishna-r-06a45136a" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.instagram.com/gokullkr" target="_blank" rel="noopener noreferrer" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="skills">
-    <div class="container">
-        <h2 class="section-title">Skills</h2>
-        <div class="skills-wrapper">
-            <div class="skills-column">
-                <h3>Operating Systems</h3>
-                <div class="badge-row">
-                    <img class="badge-img" src="https://img.shields.io/badge/Windows-0078D7?style=for-the-badge&logo=windows&logoColor=white" alt="Windows">
-                    <img class="badge-img" src="https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white" alt="Ubuntu">
-                    <img class="badge-img" src="https://img.shields.io/badge/Kali_Linux-557C94?style=for-the-badge&logo=kali-linux&logoColor=white" alt="Kali Linux">
-                    <img class="badge-img" src="https://img.shields.io/badge/Debian-D70A53?style=for-the-badge&logo=debian&logoColor=white" alt="Debian">
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="terminal-container">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="terminal-button close"></span>
+                        <span class="terminal-button minimize"></span>
+                        <span class="terminal-button maximize"></span>
+                    </div>
+                    <div class="terminal-title">gokul@parrot:~</div>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">┌──(gokul㉿parrot)-[~]</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">└─$</span>
+                        <span class="terminal-command">cat about.txt</span>
+                    </div>
+                    <div class="terminal-output">
+                        <p>Motivated cybersecurity student with hands-on practice in vulnerability scanning, penetration testing, and Capture the Flag (CTF) challenges. Skilled in using industry-standard tools such as Nmap, Burp Suite, Metasploit, Hydra, and John the Ripper within Linux environments (Kali, Ubuntu) for reconnaissance, exploitation, and system security analysis.</p>
+                        <p>Possess a strong foundation in network protocols, system administration, and information security principles, with practical experience gained through lab-based projects and security-focused coursework. Highly curious and detail-oriented, with proven ability to learn quickly, adapt to new technologies, and apply knowledge to both individual research and team-based security tasks.</p>
+                        <p>Driven by a passion for ethical hacking, problem-solving, and continuous learning, and eager to contribute technical skills to real-world security projects, organizational defense strategies, and the broader cybersecurity community.</p>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">┌──(gokul㉿parrot)-[~]</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">└─$</span>
+                        <span class="terminal-cursor">█</span>
+                    </div>
                 </div>
             </div>
-            <div class="skills-column">
-                <h3>Security Tools</h3>
-                <div class="badge-row">
-                    <img class="badge-img" src="https://img.shields.io/badge/Nmap-6E41E2?style=for-the-badge&logo=nmap&logoColor=white" alt="Nmap">
-                    <img class="badge-img" src="https://img.shields.io/badge/Burp_Suite-FF8300?style=for-the-badge&logo=burp-suite&logoColor=white" alt="Burp Suite">
-                    <img class="badge-img" src="https://img.shields.io/badge/Metasploit-008C8C?style=for-the-badge&logo=metasploit&logoColor=white" alt="Metasploit">
-                    <img class="badge-img" src="https://img.shields.io/badge/Hydra-4B0082?style=for-the-badge&logo=hydra&logoColor=white" alt="Hydra">
-                    <img class="badge-img" src="https://img.shields.io/badge/Nikto-606060?style=for-the-badge&logo=nikto&logoColor=white" alt="Nikto">
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-wrapper">
+                <div class="skills-column">
+                    <h3>Operating Systems</h3>
+                    <div class="badge-row">
+                        <img class="badge-img" src="https://img.shields.io/badge/Windows-0078D7?style=for-the-badge&logo=windows&logoColor=white" alt="Windows">
+                        <img class="badge-img" src="https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white" alt="Ubuntu">
+                        <img class="badge-img" src="https://img.shields.io/badge/Kali_Linux-557C94?style=for-the-badge&logo=kali-linux&logoColor=white" alt="Kali Linux">
+                        <img class="badge-img" src="https://img.shields.io/badge/Debian-D70A53?style=for-the-badge&logo=debian&logoColor=white" alt="Debian">
+                    </div>
+                </div>
+                <div class="skills-column">
+                    <h3>Security Tools</h3>
+                    <div class="badge-row">
+                        <img class="badge-img" src="https://img.shields.io/badge/Nmap-6E41E2?style=for-the-badge&logo=nmap&logoColor=white" alt="Nmap">
+                        <img class="badge-img" src="https://img.shields.io/badge/Burp_Suite-FF8300?style=for-the-badge&logo=burp-suite&logoColor=white" alt="Burp Suite">
+                        <img class="badge-img" src="https://img.shields.io/badge/Metasploit-008C8C?style=for-the-badge&logo=metasploit&logoColor=white" alt="Metasploit">
+                        <img class="badge-img" src="https://img.shields.io/badge/Hydra-4B0082?style=for-the-badge&logo=hydra&logoColor=white" alt="Hydra">
+                        <img class="badge-img" src="https://img.shields.io/badge/Nikto-606060?style=for-the-badge&logo=nikto&logoColor=white" alt="Nikto">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="education">
-    <div class="container">
-        <h2 class="section-title">Education</h2>
-        <div class="info-card">
-            <h3>M E S College, Kunnukara</h3>
-            <p>Bachelor of Science in Psychology | 2019 - 2022</p>
-        </div>
-        <div class="info-card">
-            <h3>Offenso Hackers Academy</h3>
-            <p>Cybersecurity Training | 2025 - Present</p>
-        </div>
-    </div>
-</section>
-
-<section id="certificates">
-    <div class="container">
-        <h2 class="section-title">Certificates</h2>
-        <div class="info-card">
-            <p style="text-align:center;">Loading certificates...</p>
-        </div>
-    </div>
-</section>
-
-<section id="projects">
-    <div class="container">
-        <h2 class="section-title">Projects</h2>
-        <div class="project-card">
-            <h3>Password Generator</h3>
-            <p>A secure password generator featuring a strength checker, master password protected history, and theme switching with adjustable text size. Built with modern web technologies and security best practices.</p>
-            <div class="project-links">
-                <a href="https://gokulkrishnar16.github.io/password-generator/" target="_blank">
-                    <i class="fas fa-external-link-alt"></i> Live Demo
-                </a>
-                <a href="https://github.com/gokulkrishnar16/password-generator" target="_blank">
-                    <i class="fab fa-github"></i> Source Code
-                </a>
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="info-card">
+                <h3>M E S College, Kunnukara</h3>
+                <p>Bachelor of Science in Psychology | 2019 - 2022</p>
+            </div>
+            <div class="info-card">
+                <h3>Offenso Hackers Academy</h3>
+                <p>Cybersecurity Training | 2025 - Present</p>
             </div>
         </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates">
+        <div class="container">
+            <h2 class="section-title">Certificates</h2>
+            <div class="info-card">
+                <p style="text-align:center;">Loading certificates...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="project-card">
+                <h3>Password Generator</h3>
+                <p>A secure password generator featuring a strength checker, master password protected history, and theme switching with adjustable text size. Built with modern web technologies and security best practices.</p>
+                <div class="project-links">
+                    <a href="https://gokulkrishnar16.github.io/password-generator/" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
+                    <a href="https://github.com/gokulkrishnar16/password-generator" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i> Source Code
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <form class="contact-form" action="https://formsubmit.co/gokulkrishnar16@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="New contact from Portfolio!">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="box">
+                
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="text" name="subject" placeholder="Subject" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Gokul Krishna R. All rights reserved.
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
     </div>
-</section>
 
-<section id="contact">
-    <div class="container">
-        <h2 class="section-title">Contact</h2>
-        <form class="contact-form">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <input type="text" name="subject" placeholder="Subject" required>
-            <textarea name="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </div>
-</section>
+    <!-- JavaScript -->
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+        const currentTheme = localStorage.getItem('theme') || 'dark';
 
-<footer>
-    &copy; 2025 Gokul Krishna R. All rights reserved.
-</footer>
+        if (currentTheme === 'light') {
+            body.setAttribute('data-theme', 'light');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
 
-<div class="scroll-top" id="scrollTop">
-    <i class="fas fa-arrow-up"></i>
-</div>
+        themeToggle.addEventListener('click', () => {
+            const theme = body.getAttribute('data-theme');
+            if (theme === 'light') {
+                body.removeAttribute('data-theme');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.setAttribute('data-theme', 'light');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'light');
+            }
+        });
 
-<script>
-const themeToggle = document.getElementById('themeToggle');
-const body = document.body;
-const icon = themeToggle.querySelector('i');
-
-const currentTheme = localStorage.getItem('theme') || 'dark';
-if (currentTheme === 'light') {
-    body.setAttribute('data-theme', 'light');
-    icon.classList.remove('fa-moon');
-    icon.classList.add('fa-sun');
-}
-
-themeToggle.addEventListener('click', () => {
-    const theme = body.getAttribute('data-theme');
-    if (theme === 'light') {
-        body.removeAttribute('data-theme');
-        icon.classList.remove('fa-sun');
-        icon.classList.add('fa-moon');
-        localStorage.setItem('theme', 'dark');
-    } else {
-        body.setAttribute('data-theme', 'light');
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-        localStorage.setItem('theme', 'light');
-    }
-});
-
-document.querySelectorAll('.nav-links a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            window.scrollTo({
-                top: target.offsetTop - 80,
-                behavior: 'smooth'
+        // Smooth Scroll Navigation
+        document.querySelectorAll('.nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+                    this.classList.add('active');
+                }
             });
-            document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-            this.classList.add('active');
-        }
-    });
-});
+        });
 
-const scrollTopBtn = document.getElementById('scrollTop');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 500) {
-        scrollTopBtn.classList.add('visible');
-    } else {
-        scrollTopBtn.classList.remove('visible');
-    }
-});
+        // Scroll Effects
+        const scrollTopBtn = document.getElementById('scrollTop');
+        const navbar = document.getElementById('navbar');
 
-scrollTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
 
-document.querySelector('.contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('Thank you for your message! I will get back to you soon.');
-    this.reset();
-});
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+            let current = '';
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
 
-document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(30px)';
-    section.style.transition = 'all 0.8s ease';
-    observer.observe(section);
-});
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
 
-window.addEventListener('scroll', () => {
-    let current = '';
-    document.querySelectorAll('section').forEach(section => {
-        if (window.scrollY >= (section.offsetTop - 150)) {
-            current = section.getAttribute('id');
-        }
-    });
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
-});
-</script>
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ 
+                top: 0, 
+                behavior: 'smooth' 
+            });
+        });
+
+        // Section Fade-in Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { 
+            threshold: 0.1, 
+            rootMargin: '0px 0px -50px 0px' 
+        });
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'all 0.8s ease';
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
