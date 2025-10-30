@@ -4,17 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Content Security Policy - Updated for Formspree -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://formspree.io; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formspree.io;">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="portfolio_icon1.png">
+    <link rel="apple-touch-icon" href="portfolio_icon1.png">
     
-    <!-- Security Headers -->
+    <!-- Content Security Policy -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta name="referrer" content="no-referrer-when-downgrade">
-    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
-    
-    <!-- HTTPS Enforcement -->
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     
     <title>Gokul Krishna R | Cybersecurity Professional</title>
     <style>
@@ -72,10 +69,27 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
             font-size: 1.5rem;
             color: var(--primary);
             font-weight: bold;
             animation: pulse 2s infinite;
+            cursor: pointer;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            filter: drop-shadow(0 0 10px rgba(0, 255, 65, 0.5));
+            transition: all 0.3s;
+            border-radius: 50%;
+        }
+
+        .logo:hover .logo-img {
+            filter: drop-shadow(0 0 20px rgba(0, 255, 65, 0.8));
+            transform: scale(1.1);
         }
 
         .nav-links {
@@ -491,7 +505,7 @@
             color: #b0b0b0;
         }
 
-        /* Professional Custom Contact Form */
+        /* Contact Form Styles */
         .form-container {
             max-width: 800px;
             margin: 0 auto;
@@ -570,7 +584,6 @@
 
         .form-group {
             margin-bottom: 1.8rem;
-            position: relative;
         }
 
         .form-group label {
@@ -579,12 +592,6 @@
             margin-bottom: 0.6rem;
             font-size: 0.95rem;
             font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        .form-group label .required {
-            color: var(--error);
-            margin-left: 3px;
         }
 
         .form-group input,
@@ -610,31 +617,9 @@
                 inset 0 0 10px rgba(0, 255, 65, 0.05);
         }
 
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(224, 224, 224, 0.4);
-        }
-
         .form-group textarea {
             resize: vertical;
             min-height: 140px;
-            line-height: 1.6;
-        }
-
-        .form-group.error input,
-        .form-group.error textarea {
-            border-color: var(--error);
-        }
-
-        .error-message {
-            color: var(--error);
-            font-size: 0.85rem;
-            margin-top: 0.4rem;
-            display: none;
-        }
-
-        .form-group.error .error-message {
-            display: block;
         }
 
         .submit-btn {
@@ -651,7 +636,6 @@
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
-            letter-spacing: 1px;
         }
 
         .submit-btn::before {
@@ -675,60 +659,6 @@
             box-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
         }
 
-        .submit-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .submit-btn.loading {
-            color: transparent;
-        }
-
-        .submit-btn .spinner {
-            display: none;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(0, 255, 65, 0.3);
-            border-top-color: var(--primary);
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-
-        .submit-btn.loading .spinner {
-            display: block;
-        }
-
-        @keyframes spin {
-            to { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-
-        .form-message {
-            margin-top: 1.5rem;
-            padding: 1rem 1.2rem;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 0.95rem;
-            display: none;
-        }
-
-        .form-message.success {
-            background: rgba(39, 201, 63, 0.15);
-            border: 1px solid var(--success);
-            color: var(--success);
-            display: block;
-        }
-
-        .form-message.error {
-            background: rgba(255, 95, 86, 0.15);
-            border: 1px solid var(--error);
-            color: var(--error);
-            display: block;
-        }
-
         footer {
             background: var(--darker);
             border-top: 2px solid var(--border);
@@ -741,54 +671,28 @@
         }
 
         @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
         }
 
         @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.7;
-            }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
         }
 
         @keyframes blink {
-            0%, 100% {
-                border-color: var(--primary);
-            }
-            50% {
-                border-color: transparent;
-            }
+            0%, 100% { border-color: var(--primary); }
+            50% { border-color: transparent; }
         }
 
         @media (max-width: 768px) {
@@ -804,62 +708,24 @@
                 border-top: 2px solid var(--border);
             }
 
-            .nav-links.active {
-                right: 0;
-            }
+            .nav-links.active { right: 0; }
 
-            .burger {
-                display: flex;
-            }
+            .burger { display: flex; }
 
-            .burger.active span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
-            }
-
-            .burger.active span:nth-child(2) {
-                opacity: 0;
-            }
-
-            .burger.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(7px, -6px);
-            }
+            .burger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+            .burger.active span:nth-child(2) { opacity: 0; }
+            .burger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
 
             .hero {
                 flex-direction: column;
                 text-align: center;
             }
 
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero h2 {
-                font-size: 1.2rem;
-            }
-
-            .cta-buttons {
-                justify-content: center;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .education-timeline {
-                padding-left: 2rem;
-            }
-
-            .contact-form {
-                padding: 1.5rem;
-            }
-
-            .form-header {
-                padding: 2rem 1.5rem 1.5rem;
-            }
-
-            .form-header h3 {
-                font-size: 1.6rem;
-            }
+            .hero h1 { font-size: 2rem; }
+            .hero h2 { font-size: 1.2rem; }
+            .section-title { font-size: 2rem; }
+            .education-timeline { padding-left: 2rem; }
+            .contact-form { padding: 1.5rem; }
         }
     </style>
 </head>
@@ -868,7 +734,10 @@
 
     <header>
         <nav>
-            <div class="logo">GKR:~$</div>
+            <div class="logo">
+                <img src="portfolio_icon1.png" alt="Gokul Krishna R" class="logo-img">
+                <span>GKR:~$</span>
+            </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -1007,83 +876,39 @@
             </a>
         </div>
         
-        <!-- Professional Custom Contact Form with Formspree -->
+        <!-- Formspree Contact Form -->
         <div class="form-container">
             <div class="form-wrapper">
                 <div class="form-header">
                     <h3>📧 Send Me a Message</h3>
                     <p>Fill out the form below and I'll get back to you soon</p>
                     <div class="form-security-badge">
-                        🔒 Verified Email Required • Professional Providers Only
+                        🔒 Secure Contact Form
                     </div>
                 </div>
                 
-                <form class="contact-form" id="contactForm" action="https://formspree.io/f/xrbolqgo" method="POST">
+                <form class="contact-form" action="https://formspree.io/f/xrbolqgo" method="POST">
                     <div class="form-group">
-                        <label for="name">
-                            Name <span class="required">*</span>
-                        </label>
-                        <input 
-                            type="text" 
-                            id="name" 
-                            name="name" 
-                            placeholder="Enter your full name"
-                            required 
-                            maxlength="100"
-                        >
-                        <span class="error-message">Please enter your name</span>
+                        <label>Your Name:</label>
+                        <input type="text" name="name" placeholder="Enter your full name" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="email">
-                            Email <span class="required">*</span>
-                        </label>
-                        <input 
-                            type="email" 
-                            id="email" 
-                            name="email" 
-                            placeholder="your.email@gmail.com"
-                            required 
-                            maxlength="100"
-                        >
-                        <span class="error-message">Please enter a valid professional email</span>
+                        <label>Your Email:</label>
+                        <input type="email" name="email" placeholder="your.email@example.com" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="subject">
-                            Subject <span class="required">*</span>
-                        </label>
-                        <input 
-                            type="text" 
-                            id="subject" 
-                            name="subject" 
-                            placeholder="What is this regarding?"
-                            required 
-                            maxlength="150"
-                        >
-                        <span class="error-message">Please enter a subject</span>
+                        <label>Subject:</label>
+                        <input type="text" name="subject" placeholder="What is this regarding?" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="message">
-                            Message <span class="required">*</span>
-                        </label>
-                        <textarea 
-                            id="message" 
-                            name="message" 
-                            placeholder="Write your message here..."
-                            required 
-                            maxlength="2000"
-                        ></textarea>
-                        <span class="error-message">Please enter your message</span>
+                        <label>Your Message:</label>
+                        <textarea name="message" placeholder="Write your message here..." required></textarea>
                     </div>
                     
-                    <button type="submit" class="submit-btn" id="submitBtn">
-                        <span class="btn-text">Send Message</span>
-                        <span class="spinner"></span>
-                    </button>
-                    
-                    <div class="form-message" id="formMessage"></div>
+                    <button type="submit" class="submit-btn">Send Message</button>
                 </form>
             </div>
         </div>
@@ -1096,14 +921,6 @@
     <script>
         'use strict';
         
-        // Sanitize user input to prevent XSS
-        function sanitizeInput(input) {
-            const element = document.createElement('div');
-            element.textContent = input;
-            return element.innerHTML;
-        }
-
-        // Safe navigation toggle
         const burger = document.querySelector('.burger');
         const navLinks = document.querySelector('.nav-links');
 
@@ -1122,11 +939,9 @@
             });
         }
 
-        // Secure Matrix background animation
         const canvas = document.querySelector('.matrix-bg');
         if (canvas) {
             const ctx = canvas.getContext('2d');
-
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
 
@@ -1138,14 +953,12 @@
             function drawMatrix() {
                 ctx.fillStyle = 'rgba(5, 8, 22, 0.05)';
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
-
                 ctx.fillStyle = '#00ff41';
                 ctx.font = fontSize + 'px monospace';
 
                 for (let i = 0; i < drops.length; i++) {
                     const text = chars[Math.floor(Math.random() * chars.length)];
                     ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
                     if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
                         drops[i] = 0;
                     }
@@ -1154,14 +967,12 @@
             }
 
             setInterval(drawMatrix, 35);
-
             window.addEventListener('resize', function() {
                 canvas.width = window.innerWidth;
                 canvas.height = window.innerHeight;
             });
         }
 
-        // Secure Intersection Observer
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
@@ -1181,122 +992,6 @@
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'all 0.6s ease-out';
             observer.observe(el);
-        });
-
-        // ===== FORMSPREE CONTACT FORM HANDLER =====
-        const contactForm = document.getElementById('contactForm');
-        
-        // Professional Email Validation
-        function validateEmail(email) {
-            // Only allow Gmail, Yahoo, Outlook, Hotmail, Live, Proton
-            const professionalDomains = [
-                'gmail.com', 'yahoo.com', 'yahoo.co.in',
-                'outlook.com', 'hotmail.com', 'live.com',
-                'protonmail.com', 'proton.me'
-            ];
-            
-            const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-            
-            if (!emailRegex.test(email)) {
-                return false;
-            }
-            
-            const domain = email.split('@')[1].toLowerCase();
-            return professionalDomains.includes(domain);
-        }
-
-        // Form Submission Handler
-        if (contactForm) {
-            contactForm.addEventListener('submit', async function(e) {
-                e.preventDefault();
-
-                const name = document.getElementById('name').value.trim();
-                const email = document.getElementById('email').value.trim();
-                const subject = document.getElementById('subject').value.trim();
-                const message = document.getElementById('message').value.trim();
-                const formMessage = document.getElementById('formMessage');
-                const submitBtn = document.getElementById('submitBtn');
-
-                // Clear previous errors
-                document.querySelectorAll('.form-group').forEach(group => {
-                    group.classList.remove('error');
-                });
-                formMessage.style.display = 'none';
-
-                // Validate inputs
-                let hasError = false;
-
-                if (!name || name.length < 2) {
-                    document.getElementById('name').closest('.form-group').classList.add('error');
-                    hasError = true;
-                }
-
-                if (!validateEmail(email)) {
-                    const emailGroup = document.getElementById('email').closest('.form-group');
-                    emailGroup.classList.add('error');
-                    emailGroup.querySelector('.error-message').textContent = 
-                        'Please use Gmail, Yahoo, Outlook, or Proton email';
-                    hasError = true;
-                }
-
-                if (!subject || subject.length < 3) {
-                    document.getElementById('subject').closest('.form-group').classList.add('error');
-                    hasError = true;
-                }
-
-                if (!message || message.length < 10) {
-                    const messageGroup = document.getElementById('message').closest('.form-group');
-                    messageGroup.classList.add('error');
-                    messageGroup.querySelector('.error-message').textContent = 
-                        'Message must be at least 10 characters';
-                    hasError = true;
-                }
-
-                if (hasError) {
-                    return;
-                }
-
-                // Show loading state
-                submitBtn.disabled = true;
-                submitBtn.classList.add('loading');
-
-                try {
-                    // Send form using Formspree
-                    const response = await fetch(contactForm.action, {
-                        method: 'POST',
-                        body: new FormData(contactForm),
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    });
-
-                    if (response.ok) {
-                        formMessage.className = 'form-message success';
-                        formMessage.textContent = '✅ Message sent successfully! I\'ll get back to you soon.';
-                        contactForm.reset();
-                    } else {
-                        throw new Error('Submission failed');
-                    }
-                } catch (error) {
-                    formMessage.className = 'form-message error';
-                    formMessage.textContent = '❌ Failed to send message. Please try again or contact via LinkedIn.';
-                }
-
-                // Reset button state
-                submitBtn.disabled = false;
-                submitBtn.classList.remove('loading');
-
-                // Clear message after 5 seconds
-                setTimeout(function() {
-                    formMessage.style.display = 'none';
-                }, 5000);
-            });
-        }
-
-        // Prevent common attacks
-        window.addEventListener('error', function(e) {
-            e.preventDefault();
-            return true;
         });
     </script>
 </body>
