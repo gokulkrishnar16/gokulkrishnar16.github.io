@@ -3,1257 +3,208 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Favicon -->
 <link rel="icon" type="image/png" href="https://gokulkrishnar16.github.io/portfolio_icon1.png">
-<link rel="apple-touch-icon" href="https://gokulkrishnar16.github.io/portfolio_icon1.png">
-<title>Gokul Krishna R | Portfolio</title>
+<title>Gokul Krishna R</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;500&display=swap" rel="stylesheet">
+
 <style>
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+height:100vh;
+background:#050510;
+color:#e5e5e5;
+display:flex;
+justify-content:center;
+align-items:center;
+font-family:'Inter',sans-serif;
+overflow:hidden;
+position:relative;
+}
+
+/* animated cyber grid */
+body::before{
+content:"";
+position:absolute;
+width:200%;
+height:200%;
+background:
+linear-gradient(rgba(0,255,255,.08) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,0,255,.08) 1px, transparent 1px);
+background-size:60px 60px;
+animation:moveGrid 20s linear infinite;
+transform:rotate(45deg);
+}
+
+@keyframes moveGrid{
+0%{transform:translateY(0) rotate(45deg);}
+100%{transform:translateY(-60px) rotate(45deg);}
+}
+
+/* neon glow circle */
+.glow{
+position:absolute;
+width:500px;
+height:500px;
+background:radial-gradient(circle,#00ffff33,transparent 70%);
+top:10%;
+left:5%;
+animation:pulse 6s ease-in-out infinite;
+}
+
+@keyframes pulse{
+0%,100%{transform:scale(1);}
+50%{transform:scale(1.2);}
+}
+
+/* card */
+.card{
+position:relative;
+width:540px;
+padding:60px 45px;
+border-radius:25px;
+background:rgba(10,10,25,0.7);
+backdrop-filter:blur(20px);
+border:1px solid rgba(0,255,255,.3);
+box-shadow:0 0 60px rgba(0,255,255,.2);
+text-align:center;
+z-index:2;
+animation:fade 1.2s ease;
+}
+
+h1{
+font-family:'Orbitron',sans-serif;
+font-size:44px;
+color:#00ffff;
+text-shadow:0 0 20px #00ffff,0 0 40px #00ffff;
+letter-spacing:2px;
+}
+
+.role{
+margin-top:15px;
+color:#ff00ff;
+font-weight:500;
+text-shadow:0 0 15px #ff00ff;
+}
+
+/* links */
+.links{
+margin-top:35px;
+}
+
+.links a{
+margin:0 14px;
+color:#00ffff;
+text-decoration:none;
+font-weight:500;
+transition:.3s;
+}
+
+.links a:hover{
+color:#ff00ff;
+text-shadow:0 0 10px #ff00ff;
+}
+
+/* buttons */
+.btn{
+display:inline-block;
+margin-top:30px;
+padding:14px 30px;
+border-radius:12px;
+background:transparent;
+border:2px solid #00ffff;
+color:#00ffff;
+font-weight:600;
+text-decoration:none;
+transition:.4s;
 }
 
-:root {
---primary: #00ff41;
---secondary: #00a8e8;
---accent: #7928ca;
---dark: #0a0e27;
---darker: #050816;
---card-bg: rgba(15, 23, 42, 0.6);
---card-border: rgba(0, 255, 65, 0.2);
---glow: rgba(0, 255, 65, 0.4);
+.btn:hover{
+background:#00ffff;
+color:#050510;
+box-shadow:0 0 25px #00ffff,0 0 50px #00ffff;
+transform:translateY(-5px) scale(1.05);
 }
 
-html {
-scroll-behavior: smooth;
+/* project */
+.project{
+margin-top:50px;
+padding:25px;
+border-radius:18px;
+border:1px solid rgba(255,0,255,.3);
+background:rgba(15,15,40,.6);
+transition:.4s;
 }
 
-body {
-font-family: 'Courier New', monospace;
-background: var(--darker);
-color: #e0e0e0;
-line-height: 1.6;
-overflow-x: hidden;
-position: relative;
+.project:hover{
+box-shadow:0 0 30px #ff00ff;
+transform:translateY(-8px);
 }
 
-/* Enhanced Matrix Background */
-.matrix-bg {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-z-index: -1;
-opacity: 0.08;
+.project-title{
+font-family:'Orbitron',sans-serif;
+font-size:20px;
+color:#ff00ff;
+text-shadow:0 0 15px #ff00ff;
 }
 
-/* Glassmorphism Header */
-header {
-background: rgba(10, 14, 39, 0.8);
-padding: 1.5rem 5%;
-border-bottom: 1px solid var(--card-border);
-position: sticky;
-top: 0;
-z-index: 100;
-backdrop-filter: blur(20px);
--webkit-backdrop-filter: blur(20px);
-box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+.project-desc{
+font-size:14px;
+margin-top:8px;
+color:#c0c0c0;
 }
 
-nav {
-display: flex;
-justify-content: space-between;
-align-items: center;
-max-width: 1400px;
-margin: 0 auto;
+@keyframes fade{
+from{opacity:0; transform:translateY(40px);}
+to{opacity:1; transform:translateY(0);}
 }
 
-.logo {
-display: flex;
-align-items: center;
-gap: 0.8rem;
-font-size: 1.5rem;
-color: var(--primary);
-font-weight: bold;
-text-shadow: 0 0 20px var(--glow);
-animation: pulse 2s infinite;
+@media(max-width:600px){
+.card{
+width:92%;
+padding:45px 25px;
 }
-
-.logo-img {
-height: 50px;
-width: auto;
-filter: drop-shadow(0 0 15px var(--glow));
-transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-border-radius: 50%;
-border: 2px solid var(--primary);
-}
-
-.logo:hover .logo-img {
-filter: drop-shadow(0 0 25px var(--glow));
-transform: scale(1.15) rotate(5deg);
-}
-
-.nav-links {
-display: flex;
-gap: 2.5rem;
-list-style: none;
-}
-
-.nav-links a {
-color: #e0e0e0;
-text-decoration: none;
-transition: all 0.3s ease;
-position: relative;
-font-size: 1.05rem;
-padding: 0.5rem 0;
-}
-
-.nav-links a::before {
-content: '';
-position: absolute;
-bottom: 0;
-left: 50%;
-transform: translateX(-50%);
-width: 0;
-height: 2px;
-background: linear-gradient(90deg, transparent, var(--primary), transparent);
-transition: width 0.4s ease;
-}
-
-.nav-links a:hover {
-color: var(--primary);
-text-shadow: 0 0 10px var(--glow);
-}
-
-.nav-links a:hover::before {
-width: 100%;
-}
-
-.burger {
-display: none;
-flex-direction: column;
-cursor: pointer;
-gap: 6px;
-}
-
-.burger span {
-width: 28px;
-height: 3px;
-background: var(--primary);
-transition: all 0.3s;
-border-radius: 2px;
-box-shadow: 0 0 10px var(--glow);
-}
-
-section {
-padding: 5rem 5%;
-max-width: 1400px;
-margin: 0 auto;
-}
-
-/* Enhanced Hero Section */
-.hero {
-min-height: 90vh;
-display: flex;
-align-items: center;
-justify-content: space-between;
-gap: 4rem;
-position: relative;
-}
-
-.hero::before {
-content: '';
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-width: 600px;
-height: 600px;
-background: radial-gradient(circle, rgba(0, 255, 65, 0.1) 0%, transparent 70%);
-border-radius: 50%;
-z-index: -1;
-animation: pulse-glow 4s ease-in-out infinite;
-}
-
-@keyframes pulse-glow {
-0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
-}
-
-.hero-content {
-flex: 1;
-animation: slideInLeft 1s ease-out;
-}
-
-.hero h1 {
-font-size: 3.5rem;
-margin-bottom: 1rem;
-background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
-font-weight: bold;
-text-shadow: 0 0 30px var(--glow);
-}
-
-.hero h2 {
-font-size: 1.8rem;
-color: var(--secondary);
-margin-bottom: 2rem;
-}
-
-.typing-text {
-border-right: 3px solid var(--primary);
-padding-right: 5px;
-animation: blink 0.7s infinite;
-display: inline-block;
-}
-
-.hero p {
-font-size: 1.15rem;
-margin-bottom: 2.5rem;
-line-height: 1.9;
-color: #c0c0c0;
-}
-
-.cta-buttons {
-display: flex;
-gap: 1.5rem;
-flex-wrap: wrap;
-}
-
-.btn {
-padding: 1rem 2.5rem;
-border: 2px solid var(--primary);
-background: transparent;
-color: var(--primary);
-cursor: pointer;
-font-size: 1.05rem;
-font-family: 'Courier New', monospace;
-font-weight: 600;
-transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-position: relative;
-overflow: hidden;
-border-radius: 5px;
-box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
-}
-
-.btn::before {
-content: '';
-position: absolute;
-top: 0;
-left: -100%;
-width: 100%;
-height: 100%;
-background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-transition: left 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-z-index: -1;
-}
-
-.btn:hover::before {
-left: 0;
-}
-
-.btn:hover {
-color: var(--darker);
-transform: translateY(-3px);
-box-shadow: 0 8px 30px var(--glow);
-border-color: transparent;
-}
-
-/* Enhanced Terminal */
-.terminal {
-flex: 1;
-background: rgba(10, 14, 39, 0.7);
-border: 1px solid var(--card-border);
-border-radius: 12px;
-padding: 1.5rem;
-animation: slideInRight 1s ease-out;
-backdrop-filter: blur(10px);
--webkit-backdrop-filter: blur(10px);
-box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5),
-            inset 0 1px 1px rgba(255, 255, 255, 0.1);
-}
-
-.terminal-header {
-display: flex;
-gap: 0.6rem;
-margin-bottom: 1.5rem;
-padding-bottom: 1rem;
-border-bottom: 1px solid var(--card-border);
-}
-
-.terminal-btn {
-width: 13px;
-height: 13px;
-border-radius: 50%;
-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-transition: all 0.3s;
-cursor: pointer;
-}
-
-.terminal-btn:nth-child(1) { background: #ff5f56; }
-.terminal-btn:nth-child(2) { background: #ffbd2e; }
-.terminal-btn:nth-child(3) { background: #27c93f; }
-
-.terminal-btn:hover {
-transform: scale(1.2);
-}
-
-.terminal-body {
-font-size: 0.95rem;
-line-height: 2;
-}
-
-.terminal-line {
-opacity: 0;
-animation: fadeInUp 0.5s ease-out forwards;
-margin: 0.5rem 0;
-}
-
-.terminal-line:nth-child(1) { animation-delay: 0.3s; }
-.terminal-line:nth-child(2) { animation-delay: 0.5s; }
-.terminal-line:nth-child(3) { animation-delay: 0.7s; }
-.terminal-line:nth-child(4) { animation-delay: 0.9s; }
-.terminal-line:nth-child(5) { animation-delay: 1.1s; }
-
-.prompt { 
-color: var(--primary);
-text-shadow: 0 0 10px var(--glow);
-font-weight: bold;
-}
-
-.output { 
-color: var(--secondary);
-}
-
-/* Enhanced Section Titles */
-.section-title {
-font-size: 2.8rem;
-background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
-margin-bottom: 4rem;
-text-align: center;
-position: relative;
-font-weight: bold;
-}
-
-.section-title::after {
-content: '';
-position: absolute;
-bottom: -15px;
-left: 50%;
-transform: translateX(-50%);
-width: 120px;
-height: 4px;
-background: linear-gradient(90deg, transparent, var(--primary), transparent);
-border-radius: 2px;
-box-shadow: 0 0 10px var(--glow);
-}
-
-/* Enhanced Skill Cards */
-.skills-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-gap: 2.5rem;
-}
-
-.skill-card {
-background: rgba(15, 23, 42, 0.5);
-border: 1px solid var(--card-border);
-border-radius: 15px;
-padding: 2.5rem;
-transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-position: relative;
-overflow: hidden;
-backdrop-filter: blur(10px);
--webkit-backdrop-filter: blur(10px);
-}
-
-.skill-card::before {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background: linear-gradient(135deg, rgba(0, 255, 65, 0.1) 0%, rgba(0, 168, 232, 0.1) 100%);
-opacity: 0;
-transition: opacity 0.4s;
-border-radius: 15px;
-}
-
-.skill-card::after {
-content: '';
-position: absolute;
-top: -2px;
-left: -2px;
-right: -2px;
-bottom: -2px;
-background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
-border-radius: 15px;
-opacity: 0;
-transition: opacity 0.4s;
-z-index: -1;
-}
-
-.skill-card:hover {
-transform: translateY(-12px) scale(1.02);
-box-shadow: 0 20px 60px rgba(0, 255, 65, 0.3);
-}
-
-.skill-card:hover::before {
-opacity: 1;
-}
-
-.skill-card:hover::after {
-opacity: 1;
-}
-
-.skill-card h3 {
-color: var(--primary);
-margin-bottom: 1.5rem;
-font-size: 1.5rem;
-text-shadow: 0 0 10px var(--glow);
-}
-
-.skill-card ul {
-list-style: none;
-}
-
-.skill-card li {
-padding: 0.8rem 0;
-position: relative;
-padding-left: 25px;
-transition: all 0.3s;
-color: #d0d0d0;
-}
-
-.skill-card li::before {
-content: '▹';
-position: absolute;
-left: 0;
-color: var(--primary);
-font-size: 1.3rem;
-transition: all 0.3s;
-}
-
-.skill-card li:hover {
-padding-left: 30px;
-color: var(--secondary);
-}
-
-.skill-card li:hover::before {
-color: var(--secondary);
-text-shadow: 0 0 10px rgba(0, 168, 232, 0.6);
-}
-
-/* Enhanced Project Cards */
-.projects-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-gap: 2.5rem;
-}
-
-.project-card {
-background: rgba(15, 23, 42, 0.5);
-border: 1px solid var(--card-border);
-border-radius: 15px;
-overflow: hidden;
-transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-backdrop-filter: blur(10px);
--webkit-backdrop-filter: blur(10px);
-position: relative;
-}
-
-.project-card::before {
-content: '';
-position: absolute;
-top: -2px;
-left: -2px;
-right: -2px;
-bottom: -2px;
-background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
-border-radius: 15px;
-opacity: 0;
-transition: opacity 0.4s;
-z-index: -1;
-}
-
-.project-card:hover {
-transform: translateY(-15px) scale(1.02);
-box-shadow: 0 25px 70px rgba(0, 255, 65, 0.3);
-}
-
-.project-card:hover::before {
-opacity: 1;
-}
-
-.project-content {
-padding: 2.5rem;
-}
-
-.project-content h3 {
-color: var(--primary);
-margin-bottom: 1.2rem;
-font-size: 1.6rem;
-text-shadow: 0 0 10px var(--glow);
-}
-
-.project-content p {
-margin-bottom: 1.8rem;
-color: #c0c0c0;
-line-height: 1.7;
-}
-
-.project-tags {
-display: flex;
-flex-wrap: wrap;
-gap: 0.8rem;
-margin-bottom: 1.5rem;
-}
-
-.tag {
-background: rgba(0, 255, 65, 0.15);
-border: 1px solid var(--primary);
-padding: 0.4rem 1rem;
-border-radius: 20px;
-font-size: 0.9rem;
-color: var(--primary);
-transition: all 0.3s;
-box-shadow: 0 0 10px rgba(0, 255, 65, 0.1);
-}
-
-.tag:hover {
-background: rgba(0, 255, 65, 0.25);
-transform: translateY(-2px);
-box-shadow: 0 5px 15px rgba(0, 255, 65, 0.3);
-}
-
-.project-links {
-display: flex;
-gap: 1.5rem;
-flex-wrap: wrap;
-}
-
-.project-link {
-color: var(--secondary);
-text-decoration: none;
-transition: all 0.3s;
-display: flex;
-align-items: center;
-gap: 0.6rem;
-padding: 0.5rem 1rem;
-border: 1px solid transparent;
-border-radius: 5px;
-}
-
-.project-link:hover {
-color: var(--primary);
-background: rgba(0, 255, 65, 0.1);
-border-color: var(--primary);
-transform: translateX(5px);
-}
-
-/* Enhanced Education Timeline */
-.education-timeline {
-position: relative;
-padding-left: 3.5rem;
-}
-
-.education-timeline::before {
-content: '';
-position: absolute;
-left: 0;
-top: 0;
-bottom: 0;
-width: 3px;
-background: linear-gradient(180deg, transparent, var(--primary), var(--secondary), var(--primary), transparent);
-box-shadow: 0 0 10px var(--glow);
-border-radius: 2px;
-}
-
-.education-item {
-position: relative;
-margin-bottom: 3.5rem;
-padding: 2rem;
-background: rgba(15, 23, 42, 0.5);
-border: 1px solid var(--card-border);
-border-radius: 12px;
-transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-backdrop-filter: blur(10px);
--webkit-backdrop-filter: blur(10px);
-}
-
-.education-item::before {
-content: '';
-position: absolute;
-left: -4.25rem;
-top: 2rem;
-width: 18px;
-height: 18px;
-background: var(--primary);
-border-radius: 50%;
-border: 4px solid var(--darker);
-box-shadow: 0 0 20px var(--glow);
-transition: all 0.3s;
-}
-
-.education-item:hover::before {
-transform: scale(1.3);
-box-shadow: 0 0 30px var(--glow);
-}
-
-.education-item:hover {
-transform: translateX(15px);
-box-shadow: 0 15px 50px rgba(0, 255, 65, 0.3);
-border-color: var(--primary);
-}
-
-.education-item h3 {
-color: var(--primary);
-margin-bottom: 0.7rem;
-font-size: 1.4rem;
-text-shadow: 0 0 10px var(--glow);
-}
-
-.education-item .year {
-color: var(--secondary);
-font-size: 1rem;
-margin-bottom: 0.5rem;
-display: inline-block;
-}
-
-.education-item p {
-color: #c0c0c0;
-line-height: 1.7;
-}
-
-/* Enhanced Contact Section */
-.contact-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-gap: 2.5rem;
-margin-bottom: 4rem;
-}
-
-.contact-card {
-background: rgba(15, 23, 42, 0.5);
-border: 1px solid var(--card-border);
-border-radius: 15px;
-padding: 2.5rem;
-text-align: center;
-transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-text-decoration: none;
-color: inherit;
-display: block;
-backdrop-filter: blur(10px);
--webkit-backdrop-filter: blur(10px);
-position: relative;
-overflow: hidden;
-}
-
-.contact-card::before {
-content: '';
-position: absolute;
-top: -2px;
-left: -2px;
-right: -2px;
-bottom: -2px;
-background: linear-gradient(45deg, var(--primary), var(--secondary));
-border-radius: 15px;
-opacity: 0;
-transition: opacity 0.4s;
-z-index: -1;
-}
-
-.contact-card:hover {
-transform: translateY(-12px) scale(1.05);
-box-shadow: 0 20px 60px rgba(0, 255, 65, 0.3);
-}
-
-.contact-card:hover::before {
-opacity: 1;
-}
-
-.contact-icon {
-font-size: 3rem;
-margin-bottom: 1.2rem;
-transition: all 0.3s;
-display: inline-block;
-}
-
-.contact-card:hover .contact-icon {
-transform: scale(1.2) rotate(5deg);
-filter: drop-shadow(0 0 15px var(--glow));
-}
-
-.contact-card h3 {
-color: var(--primary);
-margin-bottom: 0.7rem;
-font-size: 1.3rem;
-text-shadow: 0 0 10px var(--glow);
-}
-
-.contact-card p {
-color: #c0c0c0;
-}
-
-/* Enhanced Form */
-.form-container {
-max-width: 850px;
-margin: 0 auto;
-}
-
-.form-wrapper {
-background: rgba(10, 14, 39, 0.7);
-border: 2px solid var(--primary);
-border-radius: 20px;
-overflow: hidden;
-box-shadow: 0 0 50px rgba(0, 255, 65, 0.3);
-position: relative;
-backdrop-filter: blur(10px);
--webkit-backdrop-filter: blur(10px);
-}
-
-.form-wrapper::before {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-height: 5px;
-background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent), var(--primary));
-background-size: 200%;
-animation: gradientShift 4s ease infinite;
-}
-
-@keyframes gradientShift {
-0%, 100% { background-position: 0%; }
-50% { background-position: 100%; }
-}
-
-.form-header {
-text-align: center;
-padding: 3rem 2.5rem;
-background: linear-gradient(180deg, rgba(10, 14, 39, 0.95), rgba(5, 8, 22, 0.8));
-border-bottom: 1px solid var(--card-border);
-}
-
-.form-header h3 {
-color: var(--primary);
-font-size: 2.2rem;
-margin-bottom: 1rem;
-text-shadow: 0 0 25px var(--glow);
-}
-
-.form-header p {
-color: var(--secondary);
-font-size: 1.05rem;
-}
-
-.contact-form {
-padding: 3rem;
-}
-
-.form-group {
-margin-bottom: 2rem;
-}
-
-.form-group label {
-display: block;
-color: var(--primary);
-margin-bottom: 0.8rem;
-font-size: 1rem;
-font-weight: 600;
-text-shadow: 0 0 10px var(--glow);
-}
-
-.form-group input,
-.form-group textarea {
-width: 100%;
-padding: 1rem 1.5rem;
-background: rgba(10, 14, 39, 0.7);
-border: 2px solid var(--card-border);
-border-radius: 10px;
-color: #e0e0e0;
-font-family: 'Courier New', monospace;
-font-size: 1rem;
-transition: all 0.3s;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-outline: none;
-border-color: var(--primary);
-background: rgba(10, 14, 39, 0.9);
-box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
-transform: scale(1.02);
-}
-
-.form-group textarea {
-resize: vertical;
-min-height: 150px;
-}
-
-.error-msg {
-display: none;
-color: #ff5f56;
-font-size: 0.9rem;
-margin-top: 0.7rem;
-}
-
-.submit-btn {
-width: 100%;
-padding: 1.2rem;
-background: transparent;
-border: 2px solid var(--primary);
-color: var(--primary);
-font-size: 1.2rem;
-font-weight: 700;
-font-family: 'Courier New', monospace;
-cursor: pointer;
-border-radius: 10px;
-transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-position: relative;
-overflow: hidden;
-}
-
-.submit-btn::before {
-content: '';
-position: absolute;
-top: 0;
-left: -100%;
-width: 100%;
-height: 100%;
-background: linear-gradient(135deg, var(--primary), var(--secondary));
-transition: left 0.4s;
-z-index: -1;
-}
-
-.submit-btn:hover::before {
-left: 0;
-}
-
-.submit-btn:hover {
-color: var(--darker);
-transform: translateY(-3px);
-box-shadow: 0 10px 40px rgba(0, 255, 65, 0.5);
-}
-
-/* Enhanced Footer */
-footer {
-background: rgba(10, 14, 39, 0.8);
-border-top: 1px solid var(--card-border);
-padding: 2.5rem 5%;
-text-align: center;
-backdrop-filter: blur(10px);
--webkit-backdrop-filter: blur(10px);
-}
-
-footer p {
-color: #c0c0c0;
-font-size: 1.05rem;
-}
-
-/* Animations */
-@keyframes slideInLeft {
-from { opacity: 0; transform: translateX(-60px); }
-to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes slideInRight {
-from { opacity: 0; transform: translateX(60px); }
-to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes fadeInUp {
-from { opacity: 0; transform: translateY(30px); }
-to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes pulse {
-0%, 100% { opacity: 1; }
-50% { opacity: 0.8; }
-}
-
-@keyframes blink {
-0%, 100% { border-color: var(--primary); }
-50% { border-color: transparent; }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-.nav-links {
-position: fixed;
-right: -100%;
-top: 80px;
-flex-direction: column;
-background: rgba(10, 14, 39, 0.95);
-width: 100%;
-padding: 2.5rem;
-transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-border-top: 2px solid var(--card-border);
-backdrop-filter: blur(20px);
--webkit-backdrop-filter: blur(20px);
-gap: 1.5rem;
-}
-
-.nav-links.active { right: 0; }
-
-.burger { display: flex; }
-
-.burger.active span:nth-child(1) { 
-transform: rotate(45deg) translate(7px, 7px); 
-}
-
-.burger.active span:nth-child(2) { 
-opacity: 0; 
-}
-
-.burger.active span:nth-child(3) { 
-transform: rotate(-45deg) translate(7px, -7px); 
-}
-
-.hero { 
-flex-direction: column; 
-text-align: center;
-padding: 3rem 5%;
-}
-
-.hero h1 { font-size: 2.5rem; }
-.hero h2 { font-size: 1.4rem; }
-.hero p { font-size: 1.05rem; }
-
-.section-title { font-size: 2.2rem; }
-
-.education-timeline { padding-left: 2.5rem; }
-
-.contact-form { padding: 2rem; }
-
-.cta-buttons {
-justify-content: center;
-}
-
-section {
-padding: 3rem 5%;
-}
-}
-
-/* Scrollbar Styling */
-::-webkit-scrollbar {
-width: 10px;
-}
-
-::-webkit-scrollbar-track {
-background: var(--darker);
-}
-
-::-webkit-scrollbar-thumb {
-background: linear-gradient(180deg, var(--primary), var(--secondary));
-border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-background: linear-gradient(180deg, var(--secondary), var(--primary));
+h1{font-size:32px;}
 }
 </style>
 </head>
+
 <body>
-<canvas class="matrix-bg"></canvas>
 
-<header>
-<nav>
-<div class="logo">
-<img src="https://gokulkrishnar16.github.io/portfolio_icon1.png" alt="GKR" class="logo-img">
-<span>GKR:~$</span>
-</div>
-<ul class="nav-links">
-<li><a href="#home">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#education">Education</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-<div class="burger">
-<span></span>
-<span></span>
-<span></span>
-</div>
-</nav>
-</header>
+<div class="glow"></div>
 
-<section id="home" class="hero">
-<div class="hero-content">
-<h1>Hi, I'm Gokul Krishna R</h1>
-<h2><span class="typing-text">Aspiring Cybersecurity Professional | Ethical Hacker | CTF Enthusiast</span></h2>
-<p>Motivated cybersecurity student with hands-on experience in vulnerability scanning, penetration testing, and CTF challenges. Passionate about identifying system weaknesses and enhancing defensive security measures.</p>
-<div class="cta-buttons">
-<a href="#projects"><button class="btn">View Projects</button></a>
-<a href="#contact"><button class="btn">Get In Touch</button></a>
-<a href="https://gokulkrishnar16.github.io/Gokul_Current1.pdf" download="Gokul_Krishna_R_Resume.pdf" class="download-link">
-<button class="btn btn-download">
-📄 Download Resume
-</button>
-</a>
-</div>
+<div class="card">
+
+<h1>Gokul Krishna R</h1>
+<div class="role">Cybersecurity Student • Ethical Hacker • CTF Player</div>
+
+<div class="links">
+<a href="mailto:youremail@gmail.com">Email</a>
+<a href="https://github.com/gokulkrishnar16" target="_blank">GitHub</a>
+<a href="https://www.linkedin.com/in/gokul-krishna-r-06a45136a" target="_blank">LinkedIn</a>
 </div>
 
-<div class="terminal">
-<div class="terminal-header">
-<div class="terminal-btn"></div>
-<div class="terminal-btn"></div>
-<div class="terminal-btn"></div>
-</div>
-<div class="terminal-body">
-<div class="terminal-line"><span class="prompt">root@gokul:~$</span> whoami</div>
-<div class="terminal-line"><span class="output">Cybersecurity Student & Ethical Hacker</span></div>
-<div class="terminal-line"><span class="prompt">root@gokul:~$</span> cat skills.txt</div>
-<div class="terminal-line"><span class="output">Penetration Testing | Network Security</span></div>
-<div class="terminal-line"><span class="output">Web App Security | CTF Competitions</span></div>
-</div>
-</div>
-</section>
-
-<section id="about">
-<h2 class="section-title">About Me</h2>
-<div style="max-width: 950px; margin: 0 auto; text-align: center;">
-<p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 2.5rem; color: #c0c0c0;">
-I'm a motivated cybersecurity student with hands-on experience in vulnerability scanning, penetration testing, and Capture the Flag (CTF) challenges. I'm passionate about identifying system weaknesses, understanding exploit mechanics, and enhancing defensive security measures.
-</p>
-<p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 2.5rem; color: #c0c0c0;">
-Equipped with tools like Nmap, Burp Suite, Metasploit, Hydra, and John the Ripper, I perform comprehensive security assessments on Linux distributions such as Kali and Ubuntu. My learning thrives on curiosity, experimentation, and solving real-world hacking scenarios.
-</p>
-<p style="font-size: 1.3rem; color: var(--primary); font-weight: bold; text-shadow: 0 0 20px var(--glow);">
-"Hack to learn, learn to secure."
-</p>
-</div>
-</section>
-
-<section id="skills">
-<h2 class="section-title">Skills & Expertise</h2>
-<div class="skills-grid">
-<div class="skill-card">
-<h3>Security Tools</h3>
-<ul>
-<li>Nmap - Network Scanning</li>
-<li>Burp Suite - Web App Testing</li>
-<li>Metasploit - Exploitation Framework</li>
-<li>Hydra - Password Cracking</li>
-<li>John the Ripper - Hash Cracking</li>
-<li>Nikto - Web Server Scanner</li>
-</ul>
-</div>
-
-<div class="skill-card">
-<h3>Operating Systems</h3>
-<ul>
-<li>Kali Linux</li>
-<li>Ubuntu</li>
-<li>Debian</li>
-<li>Windows</li>
-</ul>
-</div>
-</div>
-</section>
-
-<section id="projects">
-<h2 class="section-title">Projects</h2>
-<div class="projects-grid">
-<div class="project-card">
-<div class="project-content">
-<h3>Password Generator</h3>
-<p>A secure password generator tool designed to create strong, randomized passwords with customizable parameters. Built with a focus on cryptographic security and user-friendly interface.</p>
-<div class="project-tags">
-<span class="tag">HTML</span>
-<span class="tag">CSS</span>
-<span class="tag">JavaScript</span>
-</div>
-<div class="project-links">
-<a href="https://github.com/gokulkrishnar16/password-generator" target="_blank" rel="noopener noreferrer" class="project-link">
-<span>→</span> Source Code
-</a>
-<a href="https://gokulkrishnar16.github.io/password-generator/" target="_blank" rel="noopener noreferrer" class="project-link">
-<span>→</span> Live Demo
-</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<section id="education">
-<h2 class="section-title">Education</h2>
-<div class="education-timeline">
-<div class="education-item">
-<h3>Offenso Hackers Academy</h3>
-<p class="year">2025 - Present</p>
-<p>Advanced training in ethical hacking, penetration testing, and cybersecurity best practices. Hands-on experience with real-world security scenarios and CTF challenges.</p>
-</div>
-
-<div class="education-item">
-<h3>M.E.S College, Kunnukara</h3>
-<p class="year">2019 - 2022</p>
-</div>
-</div>
-</section>
-
-<section id="contact">
-<h2 class="section-title">Connect With Me</h2>
-<div class="contact-grid">
-<a href="https://www.linkedin.com/in/gokul-krishna-r-06a45136a" target="_blank" rel="noopener noreferrer" class="contact-card">
-<div class="contact-icon">💼</div>
-<h3>LinkedIn</h3>
-<p>Connect professionally</p>
+<a href="https://gokulkrishnar16.github.io/Gokul_Current1.pdf" class="btn" download>
+Download Resume
 </a>
 
-<a href="https://github.com/gokulkrishnar16" target="_blank" rel="noopener noreferrer" class="contact-card">
-<div class="contact-icon">💻</div>
-<h3>GitHub</h3>
-<p>Check out my code</p>
+<div class="project">
+<div class="project-title">Password Generator Tool</div>
+<div class="project-desc">
+High-entropy customizable password generator built with HTML, CSS & JavaScript.
+</div>
+
+<a href="https://gokulkrishnar16.github.io/password-generator/" class="btn" target="_blank" style="margin-top:20px;">
+Launch Project
 </a>
 </div>
 
-<div class="form-container">
-<div class="form-wrapper">
-<div class="form-header">
-<h3>📧 Send Me a Message</h3>
-<p>Fill out the form below and I'll get back to you soon</p>
-</div>
-<form class="contact-form" id="contactForm" action="https://formspree.io/f/xrbolqgo" method="POST">
-<div class="form-group">
-<label>Your Name:</label>
-<input type="text" name="name" placeholder="Enter your full name" required>
 </div>
 
-<div class="form-group">
-<label>Your Email:</label>
-<input type="email" name="email" id="emailInput" placeholder="your.email@gmail.com" required>
-<span class="error-msg" id="emailError"></span>
-</div>
-
-<div class="form-group">
-<label>Subject:</label>
-<input type="text" name="subject" placeholder="What is this regarding?" required>
-</div>
-
-<div class="form-group">
-<label>Your Message:</label>
-<textarea name="message" placeholder="Write your message here..." required></textarea>
-</div>
-
-<button type="submit" class="submit-btn">Send Message</button>
-</form>
-</div>
-</div>
-</section>
-
-<footer>
-<p>&copy; 2025 Gokul Krishna R | Cybersecurity Portfolio</p>
-</footer>
-
-<script>
-// Navigation
-const burger = document.querySelector('.burger');
-const navLinks = document.querySelector('.nav-links');
-
-burger.addEventListener('click', () => {
-navLinks.classList.toggle('active');
-burger.classList.toggle('active');
-});
-
-document.querySelectorAll('.nav-links a').forEach(link => {
-link.addEventListener('click', () => {
-navLinks.classList.remove('active');
-burger.classList.remove('active');
-});
-});
-
-// Enhanced Matrix Background
-const canvas = document.querySelector('.matrix-bg');
-const ctx = canvas.getContext('2d');
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
-const fontSize = 16;
-const columns = canvas.width / fontSize;
-const drops = Array(Math.floor(columns)).fill(1);
-
-function drawMatrix() {
-ctx.fillStyle = 'rgba(5, 8, 22, 0.08)';
-ctx.fillRect(0, 0, canvas.width, canvas.height);
-    
-ctx.fillStyle = '#00ff41';
-ctx.font = fontSize + 'px monospace';
-    
-for (let i = 0; i < drops.length; i++) {
-const text = chars[Math.floor(Math.random() * chars.length)];
-ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-        
-if (drops[i] * fontSize > canvas.height && Math.random() > 0.98) {
-drops[i] = 0;
-}
-drops[i]++;
-}
-}
-
-setInterval(drawMatrix, 40);
-
-window.addEventListener('resize', () => {
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-});
-
-// Enhanced Scroll Animations
-const observer = new IntersectionObserver(entries => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-entry.target.style.opacity = '1';
-entry.target.style.transform = 'translateY(0)';
-}
-});
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.skill-card, .project-card, .education-item, .contact-card').forEach(el => {
-el.style.opacity = '0';
-el.style.transform = 'translateY(40px)';
-el.style.transition = 'all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
-observer.observe(el);
-});
-
-// Email Validation
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-const email = document.getElementById('emailInput').value.toLowerCase();
-const errorMsg = document.getElementById('emailError');
-    
-const allowedDomains = [
-'gmail.com', 'yahoo.com', 'yahoo.co.in',
-'outlook.com', 'hotmail.com', 'live.com',
-'protonmail.com', 'proton.me'
-];
-    
-const domain = email.split('@')[1];
-    
-if (!allowedDomains.includes(domain)) {
-e.preventDefault();
-errorMsg.textContent = '❌ Please use Gmail, Yahoo, Outlook, or Proton email';
-errorMsg.style.display = 'block';
-return false;
-}
-    
-errorMsg.style.display = 'none';
-});
-
-document.getElementById('emailInput').addEventListener('input', function() {
-document.getElementById('emailError').style.display = 'none';
-});
-</script>
 </body>
 </html>
